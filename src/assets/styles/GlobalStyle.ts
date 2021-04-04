@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+
 import theme from 'assets/styles/theme';
 import media from 'assets/styles/media';
 
