@@ -54,4 +54,7 @@ export default {
     },
   },
   shadow: '0.2rem 0.4rem 1.5rem rgba(25,25,25,0.15)',
+  const: {
+    HEADER_HEIGHT: '7rem',
+  },
 };
