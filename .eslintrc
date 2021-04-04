@@ -1,0 +1,51 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "node": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "no-undef": "off",
+        "no-unused-vars": "off",
+        "import/prefer-default-export": "off",
+        "react/prop-types": "off",
+        "no-restricted-syntax": "off",
+        "import/no-unresolved": "off",
+        "linebreak-style": "off",
+        "react/jsx-props-no-spreading": "off",
+        "react/require-default-props": "off",
+        "react/jsx-indent": "off",
+        "react/jsx-one-expression-per-line": "off",
+        "react/forbid-prop-types": "off",
+        "indent": "off",
+        "no-shadow": "off",
+        "no-underscore-dangle": "off",
+        "no-multiple-empty-lines": "off",
+        "no-param-reassign": "off",
+        "import/extensions": "off",
+        "no-use-before-define": "off",
+        "@typescript-eslint/no-use-before-define": ["error"],
+        "react/jsx-filename-extension": [
+        1,
+        {
+            "extensions": [".tsx", ".ts", ".js", ".jsx"]
+        }
+        ]
+    }
+}
