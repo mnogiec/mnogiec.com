@@ -36,7 +36,7 @@ module.exports = {
         start_url: '/',
         background_color: '#3A3D9B',
         theme_color: '#3A3D9B',
-        icon: 'FILL',
+        icon: './src/assets/images/icon.png',
       },
     },
   ],
