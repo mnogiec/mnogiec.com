@@ -37,7 +37,7 @@ export default {
   },
   font: {
     family: {
-      lato: "'Montserrat', sans-serif",
+      montserrat: "'Montserrat', sans-serif",
     },
     size: {
       xs: '1rem',
