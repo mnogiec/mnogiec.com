@@ -1,9 +1,9 @@
 import React from 'react';
-import { Provider as ContextProvider } from 'context/ThemeContext';
+import { Provider as GlobalProvider } from 'context/GlobalContext';
 
 
 export const wrapRootElement = ({ element }) => (
-    <ContextProvider>
-      {element}
-    </ContextProvider>
-  );
+  <GlobalProvider>
+    {element}
+  </GlobalProvider>
+);

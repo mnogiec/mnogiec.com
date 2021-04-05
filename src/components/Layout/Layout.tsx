@@ -3,7 +3,7 @@ import { ThemeProvider } from 'styled-components';
 
 import GlobalStyle from 'assets/styles/GlobalStyle';
 import Helmet from 'components/Helmet/Helmet';
-import { Context as ThemeContext } from 'context/ThemeContext';
+import { Context as GlobalContext } from 'context/GlobalContext';
 import theme from 'assets/styles/theme';
 
 import * as S from './Layout.styles';
@@ -13,10 +13,12 @@ import * as T from './Layout.types';
 const Layout:React.FC<T.Props> = ({
  children, pageTitle, header,
 }) => {
-  const { initialThemeCheck } = useContext(ThemeContext);
+  const { initialContextCheck } = useContext(GlobalContext);
 
+
+  // Check context content on url change (or 1st page load-up)
   useEffect(() => {
-    initialThemeCheck();
+    initialContextCheck();
   }, []);
 
 

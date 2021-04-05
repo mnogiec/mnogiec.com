@@ -2,17 +2,26 @@ import theme from 'assets/styles/theme';
 import createContext from './createContext';
 
 
-const themeReducer = (state:{theme:string}, action:any) => {
+type GlobalReducerType={
+  lastTheme: string,
+  lastLanguage: string,
+  hadDisplayedCookies: boolean
+}
+
+
+const globalReducer = (state:GlobalReducerType, action:any) => {
   switch (action.type) {
-    case 'set': {
+    case 'setTheme': {
       return ({
-        theme: action.payload.newTheme,
+        ...state,
+        lastTheme: action.payload.newTheme,
       });
     }
 
-    case 'change': {
+    case 'changeTheme': {
       return ({
-        theme: state.theme === 'light' ? 'dark' : 'light',
+        ...state,
+        lastTheme: state.lastTheme === 'light' ? 'dark' : 'light',
       });
     }
 
@@ -24,7 +33,7 @@ const themeReducer = (state:{theme:string}, action:any) => {
 
 
 // Change CSS variables
-const changeVariables = (newTheme:string) => {
+const changeCSSVariables = (newTheme:string) => {
   const root = document.documentElement.style;
 
   if (newTheme === 'light') {
@@ -48,43 +57,43 @@ const changeVariables = (newTheme:string) => {
 
 // Change theme to a different one
 const changeTheme = (dispatch:any) => () => {
-  // @ts-ignore
-  const theme:string = localStorage.getItem('theme') || 'light';
+  const lastTheme:string = localStorage.getItem('lastTheme') || 'light';
 
-  if (theme === 'light') {
-    changeVariables('dark');
-    localStorage.setItem('theme', 'dark');
-  } else if (theme === 'dark') {
-    changeVariables('light');
-    localStorage.setItem('theme', 'light');
+  if (lastTheme === 'light') {
+    changeCSSVariables('dark');
+    localStorage.setItem('lastTheme', 'dark');
+  } else if (lastTheme === 'dark') {
+    changeCSSVariables('light');
+    localStorage.setItem('lastTheme', 'light');
   }
 
-  dispatch({ type: 'change' });
+  dispatch({ type: 'changeTheme' });
 };
 
 // Check if there is a theme set in localStorage
-const initialThemeCheck = (dispatch:any) => () => {
-  // @ts-ignore
-  const theme:string = localStorage.getItem('theme') || 'light';
+const initialContextCheck = (dispatch:any) => () => {
+  const lastTheme:string = localStorage.getItem('lastTheme') || 'light';
 
-  if (theme === 'light') {
-    changeVariables('light');
-    dispatch({ type: 'set', payload: { newTheme: 'light' } });
-  } else if (theme === 'dark') {
-    changeVariables('dark');
-    dispatch({ type: 'set', payload: { newTheme: 'dark' } });
+  if (lastTheme === 'light') {
+    changeCSSVariables('light');
+    dispatch({ type: 'setTheme', payload: { newTheme: 'light' } });
+  } else if (lastTheme === 'dark') {
+    changeCSSVariables('dark');
+    dispatch({ type: 'setTheme', payload: { newTheme: 'dark' } });
   }
 };
 
 
 const initialState = {
+  lastTheme: localStorage.getItem('lastTheme') || 'light',
+  language: localStorage.getItem('lastLanguage') || 'en',
   // @ts-ignore
-  theme: localStorage.getItem('theme') || 'light',
+  hadDisplayedCookies: JSON.parse(localStorage.getItem('hadDisplayedCookies')) || false,
 };
 
 
 export const { Context, Provider } = createContext(
-  themeReducer,
-  { changeTheme, initialThemeCheck },
+  globalReducer,
+  { changeTheme, initialContextCheck },
   initialState,
 );
