@@ -1,3 +1,19 @@
 {
-  "title": "Titel"
+  "header":{
+    "logoHover": "Hauptseite",
+    "about": "Über mich",
+    "technologies": "Technologien",
+    "projects": "Projekte",
+    "contact": "Kontakt"
+  },
+  "hero":{
+    "title": "Ich bin Nikolas",
+    "subtitle": "React Entwickler",
+    "projectsButton": "Meine Projekte",
+    "contactButton": "Kontakt mit mich"
+  },
+  "cookie":{
+    "text": "This website uses cookies to ensure you are getting the best possible experience.",
+    "acceptButton": "Ich stimme zu"
+  }
 }

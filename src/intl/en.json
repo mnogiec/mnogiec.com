@@ -1,3 +1,19 @@
 {
-  "title": "Title"
+  "header":{
+    "logoHover": "Home",
+    "about": "About",
+    "technologies": "Technologies",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero":{
+    "title": "I'm Nicholas",
+    "subtitle": "React developer",
+    "projectsButton": "My projects",
+    "contactButton": "Contact me"
+  },
+  "cookie":{
+    "text": "This website uses cookies to ensure you are getting the best possible experience.",
+    "acceptButton": "Accept"
+  }
 }

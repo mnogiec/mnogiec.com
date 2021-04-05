@@ -1,3 +1,19 @@
 {
-  "title": "Tytuł"
+  "header":{
+    "logoHover": "Strona główna",
+    "about": "O mnie",
+    "technologies": "Technologie",
+    "projects": "Projekty",
+    "contact": "Kontakt"
+  },
+  "hero":{
+    "title": "Jestem Mikołaj",
+    "subtitle": "Programista React",
+    "projectsButton": "Moje projekty",
+    "contactButton": "Kontakt"
+  },
+  "cookie":{
+    "text": "Ta strona wykorzystuje cookies, aby zagwarantować funkcjonalności na jak najwyższym poziomie.",
+    "acceptButton": "Rozumiem"
+  }
 }
