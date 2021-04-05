@@ -15,12 +15,22 @@ module.exports = {
     'gatsby-plugin-typescript',
     'gatsby-plugin-eslint',
     {
+      resolve: 'gatsby-plugin-intl',
+      options: {
+        path: path.join(__dirname, 'src/intl'),
+        languages: ['en', 'de', 'pl'],
+        defaultLanguage: 'en',
+        redirect: false,
+      },
+    },
+    {
       resolve: 'gatsby-plugin-root-import',
       options: {
         src: path.join(__dirname, 'src'),
         assets: path.join(__dirname, 'src/assets'),
         components: path.join(__dirname, 'src/components'),
         context: path.join(__dirname, 'src/context'),
+        intl: path.join(__dirname, 'src/intl'),
         pages: path.join(__dirname, 'src/pages'),
       },
     },
