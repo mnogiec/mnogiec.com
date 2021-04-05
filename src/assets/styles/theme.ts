@@ -51,6 +51,7 @@ export default {
       light: '300',
       normal: '400',
       bold: '700',
+      extraBold: '900',
     },
   },
   shadow: '0.2rem 0.4rem 1.5rem rgba(25,25,25,0.15)',
