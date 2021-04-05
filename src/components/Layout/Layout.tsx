@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import GlobalStyle from 'assets/styles/GlobalStyle';
 import Helmet from 'components/Helmet/Helmet';
 import { Context as GlobalContext } from 'context/GlobalContext';
+import Header from 'components/Header/Header';
 import theme from 'assets/styles/theme';
 
 import * as S from './Layout.styles';
@@ -27,6 +28,7 @@ const Layout:React.FC<T.Props> = ({
       <Helmet pageTitle={pageTitle} />
       <GlobalStyle />
       <ThemeProvider theme={theme}>
+        {header && <Header />}
         <S.StyledWrapper header={header}>
           {children}
         </S.StyledWrapper>
