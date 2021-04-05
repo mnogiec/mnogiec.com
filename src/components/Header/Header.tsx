@@ -3,13 +3,16 @@ import { useIntl } from 'gatsby-plugin-intl';
 
 import { Context as GlobalContext } from 'context/GlobalContext';
 
+import logoDarkSvg from 'assets/images/header/logo_dark.svg';
+import logoLightSvg from 'assets/images/header/logo_light.svg';
+import textDarkSvg from 'assets/images/header/text_dark.svg';
+import textLightSvg from 'assets/images/header/text_light.svg';
 import * as S from './Header.styles';
-// import * as T from './Header.types';
 
 
 const Header:React.FC = () => {
   const intl = useIntl();
-  const { changeTheme } = useContext(GlobalContext);
+  const { state, changeTheme } = useContext(GlobalContext);
 
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
   const [isSideMenuOpen, setIsSidemenuOpen] = useState(false);
@@ -20,8 +23,11 @@ const Header:React.FC = () => {
   });
 
   return (
-    <S.StyledHeader scroll={scroll} title={intl.formatMessage({ id: 'header.logoHover' })}>
-      <S.StyledLogoWrapper>Logo</S.StyledLogoWrapper>
+    <S.StyledHeader scroll={scroll}>
+      <S.StyledLogoWrapper title={intl.formatMessage({ id: 'header.logoHover' })} onClick={() => null}>
+        <S.StyledLogoImage src={state.theme === 'light' ? logoLightSvg : logoDarkSvg} alt="MNogiec.com logo" />
+        <S.StyledTextImage src={state.theme === 'light' ? textLightSvg : textDarkSvg} alt="" />
+      </S.StyledLogoWrapper>
       <S.StyledHamburgerWrapper onClick={() => setIsSidemenuOpen((state) => !state)}>
         MENU
       </S.StyledHamburgerWrapper>

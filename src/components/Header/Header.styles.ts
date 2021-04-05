@@ -17,26 +17,56 @@ export const StyledHeader = styled.header<{scroll:number}>`
   box-shadow: ${({ scroll, theme }) => scroll > 50 && theme.shadow};
   transition: box-shadow .2s;
   z-index: 100;
+
+  @media ${media.tablet}{
+    padding: 0 4rem;
+  }
+
+  @media ${media.laptop}{
+    padding: 0 8rem;
+  }
 `;
 
 export const StyledLogoWrapper = styled.button`
+  display: flex;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  align-items: center;
+`;
+
+export const StyledLogoImage = styled.img`
+  display: block;
+  height: ${({ theme }) => `calc(0.6 * ${theme.const.HEADER_HEIGHT})`};
+
+  @media ${media.tabletL}{
+    height: ${({ theme }) => `calc(0.7 * ${theme.const.HEADER_HEIGHT})`};
+  }
+
+  @media ${media.laptop}{
+    height: auto;
+  }
+
+  @media ${media.desktop}{
+    padding-right: 3rem;
+  }
+`;
+
+export const StyledTextImage = styled.img`
+  display: none;
+
+  @media ${media.desktop}{
+    display: block;
+    padding: .5rem 0;
+    padding-left: 2.5rem;
+    border-left: .2rem solid #8E8E8E;
+  }
 `;
 
 export const StyledHamburgerWrapper = styled.button`
-  @media ${media.laptop}{
+  @media ${media.laptopL}{
     display: none;
-  }
-
-  & .hamburger{
-    
-  }
-
-  & .hamburger-box{
-
-  }
-
-  & .hamburger-inner{
-
   }
 `;
 
@@ -53,7 +83,7 @@ export const StyledNavigation = styled.nav<{isOpen:boolean}>`
   border-bottom: .3rem solid var(--color-primary);
   z-index: 90;
 
-  @media ${media.laptop}{
+  @media ${media.laptopL}{
     display: flex;
     position: initial;
     top: auto;
@@ -71,7 +101,7 @@ export const StyledNavigation = styled.nav<{isOpen:boolean}>`
 export const StyledNavList = styled.ul`
   list-style: none;
 
-  @media ${media.laptop}{
+  @media ${media.laptopL}{
     display: flex;
   }
 `;
@@ -99,7 +129,7 @@ export const StyledNavLink = styled.button`
     color: var(--color-primary);
   }
 
-  @media ${media.laptop}{
+  @media ${media.laptopL}{
     height: 100%;
     margin: 0 2rem;
     padding: 0 1rem;
@@ -119,7 +149,7 @@ export const StyledSubnavWrapper = styled.div`
 `;
 
 export const StyledLanguage = styled.div`
-  @media ${media.laptop}{
+  @media ${media.laptopL}{
     margin: 0 2rem;
   }
 `;
