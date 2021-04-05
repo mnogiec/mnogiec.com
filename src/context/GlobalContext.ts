@@ -3,8 +3,8 @@ import createContext from './createContext';
 
 
 type GlobalReducerType={
-  lastTheme: string,
-  lastLanguage: string,
+  theme: string,
+  language: string,
   hadDisplayedCookies: boolean
 }
 
@@ -14,14 +14,14 @@ const globalReducer = (state:GlobalReducerType, action:any) => {
     case 'setTheme': {
       return ({
         ...state,
-        lastTheme: action.payload.newTheme,
+        theme: action.payload.newTheme,
       });
     }
 
     case 'changeTheme': {
       return ({
         ...state,
-        lastTheme: state.lastTheme === 'light' ? 'dark' : 'light',
+        theme: state.theme === 'light' ? 'dark' : 'light',
       });
     }
 
@@ -85,7 +85,7 @@ const initialContextCheck = (dispatch:any) => () => {
 
 
 const initialState = {
-  lastTheme: localStorage.getItem('lastTheme') || 'light',
+  theme: localStorage.getItem('lastTheme') || 'light',
   language: localStorage.getItem('lastLanguage') || 'en',
   // @ts-ignore
   hadDisplayedCookies: JSON.parse(localStorage.getItem('hadDisplayedCookies')) || false,
