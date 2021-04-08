@@ -4,7 +4,10 @@
     "about": "About",
     "technologies": "Technologies",
     "projects": "Projects",
-    "contact": "Contact"
+    "contact": "Contact",
+    "lightTheme": "Light theme", 
+    "darkTheme": "Dark theme",
+    "language": "language"
   },
   "hero":{
     "title": "I'm Nicholas",

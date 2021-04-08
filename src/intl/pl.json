@@ -4,11 +4,14 @@
     "about": "O mnie",
     "technologies": "Technologie",
     "projects": "Projekty",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "lightTheme": "Jasny motyw", 
+    "darkTheme": "Ciemny motyw",
+    "language": "język"
   },
   "hero":{
     "title": "Jestem Mikołaj",
-    "subtitle": "Programista React",
+    "subtitle": "React developer",
     "projectsButton": "Moje projekty",
     "contactButton": "Kontakt"
   },

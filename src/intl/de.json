@@ -4,7 +4,10 @@
     "about": "Über mich",
     "technologies": "Technologien",
     "projects": "Projekte",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "lightTheme": "Hellmodus", 
+    "darkTheme": "Dunkelmodus",
+    "language": "Sprache"
   },
   "hero":{
     "title": "Ich bin Nikolas",
