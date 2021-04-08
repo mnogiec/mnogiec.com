@@ -32,6 +32,7 @@ module.exports = {
         context: path.join(__dirname, 'src/context'),
         intl: path.join(__dirname, 'src/intl'),
         pages: path.join(__dirname, 'src/pages'),
+        pages_styles: path.join(__dirname, 'src/pages_styles'),
       },
     },
     {
