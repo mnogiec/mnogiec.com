@@ -51,4 +51,8 @@ export default createGlobalStyle`
     background-color: var(--color-primary);
     color: #ffffff;
   }
+
+  img::selection{
+    background-color: transparent;
+  }
 `;
