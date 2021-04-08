@@ -154,6 +154,32 @@ export const StyledLanguage = styled.div`
   }
 `;
 
-export const StyledThemeButton = styled.button`
+export const StyledThemeButton = styled.button<{colorMode:string}>`
+  width: 5.5rem;
+  height: 3rem;
+  padding: .5rem;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: ${({ colorMode }) => (colorMode === 'light' ? 'linear-gradient(#6eacdc, #6e9adc)' : 'linear-gradient(#091236, #1E215D)')};
+  border-radius: 2.5rem;
+  border: ${({ colorMode }) => (colorMode === 'light' ? '.1rem solid #5266cf' : '.1rem solid #252735')};
+  outline: none;
+  overflow: hidden;
+  cursor: pointer;
 
+  & > img{
+    height: auto;
+    width: 2rem;
+    transition: .3s linear;
+    
+    &:first-child{
+      transform: ${({ colorMode }) => (colorMode === 'light' ? 'translateY(0)' : 'translateY(10rem)')};
+    }
+
+    &:last-child{
+      transform: ${({ colorMode }) => (colorMode !== 'light' ? 'translateY(0)' : 'translateY(10rem)')};
+    }
+  }
 `;

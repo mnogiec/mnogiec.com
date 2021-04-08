@@ -3,6 +3,8 @@ import { useIntl } from 'gatsby-plugin-intl';
 
 import { Context as GlobalContext } from 'context/GlobalContext';
 
+import sunSvg from 'assets/images/header/sun.svg';
+import moonSvg from 'assets/images/header/moon.svg';
 import logoDarkSvg from 'assets/images/header/logo_dark.svg';
 import logoLightSvg from 'assets/images/header/logo_light.svg';
 import textDarkSvg from 'assets/images/header/text_dark.svg';
@@ -50,8 +52,9 @@ const Header:React.FC = () => {
           <S.StyledLanguage>
             ENG
           </S.StyledLanguage>
-          <S.StyledThemeButton onClick={changeTheme}>
-            Theme
+          <S.StyledThemeButton onClick={changeTheme} colorMode={state.theme}>
+            <img src={sunSvg} alt={intl.formatMessage({ id: 'lightTheme' })} />
+            <img src={moonSvg} alt={intl.formatMessage({ id: 'darkTheme' })} />
           </S.StyledThemeButton>
         </S.StyledSubnavWrapper>
       </S.StyledNavigation>
