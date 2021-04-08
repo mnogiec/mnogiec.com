@@ -148,15 +148,73 @@ export const StyledSubnavWrapper = styled.div`
   align-items: center;
 `;
 
-export const StyledLanguage = styled.div`
+export const StyledLanguageWrapper = styled.div`
+  position: relative;
+  display: flex;
+  padding: 0;
+`;
+
+export const StyledLanguageIcon = styled.img<{colorMode:string}>`
+  width: 3rem;
+  padding: 0;
+  cursor: pointer;
+
   @media ${media.laptopL}{
     margin: 0 2rem;
   }
 `;
 
+export const StyledLanguageDropdown = styled.div<{show:boolean}>`
+  position: absolute;
+  top: 5.5rem;
+  left: 25%;
+  background-color: var(--color-headerBackground);
+  border-radius: .8rem;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-2rem);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+
+  opacity: ${({ show }) => show && '1'};
+  visibility: ${({ show }) => show && 'visible'};
+  transform: ${({ show }) => show && 'translateY(0)'};
+`;
+
+export const StyledLanguageList = styled.ul`
+  list-style: none;
+`;
+
+export const StyledLanguageItem = styled.li<{isCurrent:boolean, colorMode:string}>`
+  &:not(:last-of-type){
+    border-bottom: .1rem solid #ddd;
+    border-color: ${({ colorMode }) => (colorMode === 'light' ? 'ddd' : '#444')};
+  }
+
+  &:hover{
+    color: var(--color-primary);
+  }
+`;
+
+export const StyledLanguageLink = styled(Link)`
+  display: flex;
+  color: inherit;
+  padding: .5rem 1rem;
+  margin: 1rem 0;
+
+  @media ${media.laptop}{
+    margin: 0.5rem 0;
+  }
+`;
+
+export const StyledLanguageListIcon = styled.img`
+  height: 2.3rem;
+  margin-right: 1rem;
+`;
+
 export const StyledThemeButton = styled.button<{colorMode:string}>`
-  width: 5.5rem;
-  height: 3rem;
+  width: 4.5rem;
+  height: 2.6rem;
   padding: .5rem;
   position: relative;
   display: flex;
@@ -171,7 +229,7 @@ export const StyledThemeButton = styled.button<{colorMode:string}>`
 
   & > img{
     height: auto;
-    width: 2rem;
+    width: 1.7rem;
     transition: .3s linear;
     
     &:first-child{
