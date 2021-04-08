@@ -25,6 +25,13 @@ const globalReducer = (state:GlobalReducerType, action:any) => {
       });
     }
 
+    case 'setLanguage': {
+      return ({
+        ...state,
+        language: action.payload.newLanguage,
+      });
+    }
+
     default: {
       return state;
     }
@@ -33,7 +40,7 @@ const globalReducer = (state:GlobalReducerType, action:any) => {
 
 
 // Change CSS variables
-const changeCSSVariables = (newTheme:string) => {
+const changeCSSVariables = (newTheme:'light'|'dark') => {
   const root = document.documentElement.style;
 
   if (newTheme === 'light') {
@@ -70,8 +77,15 @@ const changeTheme = (dispatch:any) => () => {
   dispatch({ type: 'changeTheme' });
 };
 
+// Set current stored language
+const setLanguage = (dispatch:any) => (newLanguage:'en'|'pl'|'de') => {
+  localStorage.setItem('lastLanguage', newLanguage);
+  dispatch({ type: 'setLanguage', payload: { newLanguage } });
+};
+
 // Check if there is a theme set in localStorage
 const initialContextCheck = (dispatch:any) => () => {
+  // Handling last theme
   const lastTheme:string = localStorage.getItem('lastTheme') || 'light';
 
   if (lastTheme === 'light') {
@@ -81,6 +95,33 @@ const initialContextCheck = (dispatch:any) => () => {
     changeCSSVariables('dark');
     dispatch({ type: 'setTheme', payload: { newTheme: 'dark' } });
   }
+
+
+  // Handling language
+  const lastLanguage:string = localStorage.getItem('lastLanguage') || 'en';
+  let newLanguage:'en'|'pl'|'de' = 'en';
+
+  const path:string = window.location.pathname;
+
+  if (path.length < 3) {
+    newLanguage = 'en';
+  } else if (path.length >= 3) {
+    if (path.substr(0, 3) === '/en') {
+      newLanguage = 'en';
+    } else if (path.substr(0, 3) === '/pl') {
+      newLanguage = 'pl';
+    } else if (path.substr(0, 3) === '/de') {
+      newLanguage = 'de';
+    }
+  }
+
+  // TODO: Remove when added language redirections
+  if (lastLanguage !== newLanguage) {
+    console.log('🚩 GlobalContext -> initialContextCheck: newLanguage is different than lastLanguage. Language should be automatically changed to a saved one.');
+  }
+
+  localStorage.setItem('lastLanguage', newLanguage);
+  dispatch({ type: 'setLanguage', payload: { newLanguage } });
 };
 
 
@@ -94,6 +135,6 @@ const initialState = {
 
 export const { Context, Provider } = createContext(
   globalReducer,
-  { changeTheme, initialContextCheck },
+  { changeTheme, initialContextCheck, setLanguage },
   initialState,
 );
