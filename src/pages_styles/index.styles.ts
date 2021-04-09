@@ -41,12 +41,11 @@ export const StyledHeroWrapper = styled.div`
 export const StyledSection = styled.div`
   width: 100%;
   margin: 0 auto;
-  padding: 6rem 0;
+  padding: 7rem 3rem;
   display: flex;
   flex-direction: column;
-  padding: 4rem 3rem;
   background: linear-gradient(var(--color-sectionGradient-start), var(--color-sectionGradient-end));
-
+  overflow: hidden;
 `;
 
 export const StyledSectionWrapper = styled.section`
@@ -235,6 +234,52 @@ export const StyledAboutImage = styled.img`
 `;
 
 export const StyledTechnologies = styled.div`
+  padding: -3rem;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
+  overflow: hidden;
+
+  @media ${media.mobileM}{
+    padding: -4rem;
+  }
+  
+  @media ${media.tablet}{
+    padding: inherit;
+  }
+
+  @media ${media.laptop}{
+    padding: -6rem;
+  }
+
+  @media ${media.desktop}{
+    margin: -6rem;
+    justify-content: space-between;
+  }
+`;
+
+export const StyledTechnologiesBox = styled.div`
+  margin: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @media ${media.mobileM}{
+    margin: 4rem;
+  }
+
+  @media ${media.tablet}{
+    margin: 5rem;
+  }
+
+  @media ${media.laptop}{
+    margin: 6rem;
+  }
+`;
+
+export const StyledTechnologiesImage = styled.img`
+  width: 11rem;
+  display: block;
+  margin-bottom: 2rem;
 `;
