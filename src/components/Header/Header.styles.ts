@@ -65,9 +65,51 @@ export const StyledTextImage = styled.img`
 `;
 
 export const StyledHamburgerWrapper = styled.button`
+  padding: .5rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
   @media ${media.laptopL}{
     display: none;
   }
+`;
+
+export const StyledHamburgerTop = styled.div<{show:boolean}>`
+  width: 5.5rem;
+  height: .4rem;
+  background-color: var(--color-font);
+  border-radius: 1rem;
+  transition: .5s;
+  transform-origin: center;
+
+  transform: ${({ show }) => show && 'translateY(1.6rem) rotate(45deg)'};
+`;
+
+export const StyledHamburgerMiddle = styled.div<{show:boolean}>`
+  width: 5.5rem;
+  height: .4rem;
+  background-color: var(--color-font);
+  border-radius: 1rem;
+  transition: .5s;
+
+  background-color: ${({ show }) => show && 'transparent'};
+`;
+
+export const StyledHamburgerBottom = styled.div<{show:boolean}>`
+  width: 5.5rem;
+  height: .4rem;
+  background-color: var(--color-font);
+  border-radius: 1rem;
+  transition: .5s;
+  transform-origin: center;
+
+  transform: ${({ show }) => show && 'translateY(-1.6rem) rotate(-45deg)'};
 `;
 
 export const StyledNavigation = styled.nav<{isOpen:boolean}>`

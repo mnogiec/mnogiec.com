@@ -66,7 +66,9 @@ const Header:React.FC = () => {
         <S.StyledTextImage src={state.theme === 'light' ? textLightSvg : textDarkSvg} alt="MNOGIEC" />
       </S.StyledLogoWrapper>
       <S.StyledHamburgerWrapper onClick={() => setIsSidemenuOpen((state) => !state)}>
-        MENU
+        <S.StyledHamburgerTop show={isSideMenuOpen} />
+        <S.StyledHamburgerMiddle show={isSideMenuOpen} />
+        <S.StyledHamburgerBottom show={isSideMenuOpen} />
       </S.StyledHamburgerWrapper>
       <S.StyledNavigation isOpen={isSideMenuOpen}>
         <S.StyledNavList>
