@@ -21,5 +21,11 @@
     "text_link": "https://de.wikipedia.org/wiki/HTTP-Cookie",
     "text_end": " to ensure you are getting the best possible experience.",
     "acceptButton": "Ich stimme zu"
+  },
+  "about":{
+    "title": "Über mich",
+    "subtitle": "Wer bin",
+    "title_text": "",
+    "text": ""
   }
 }
