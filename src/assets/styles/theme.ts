@@ -30,10 +30,6 @@ export default {
       light: '#665F82',
       dark: '#AEA48F',
     },
-    welcomeBalls: {
-      light: ['#3A9B91', '#3A3D9B', '#959B3A', '#9B3A3A', '#953A9B'],
-      dark: ['#3A9B91', '#3A3D9B', '#959B3A', '#9B3A3A', '#953A9B'],
-    },
   },
   font: {
     family: {
