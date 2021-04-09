@@ -25,6 +25,13 @@ const globalReducer = (state:GlobalReducerType, action:any) => {
       });
     }
 
+    case 'acceptCookies': {
+      return ({
+        ...state,
+        hadDisplayedCookies: true,
+      });
+    }
+
     case 'setLanguage': {
       return ({
         ...state,
@@ -83,6 +90,12 @@ const setLanguage = (dispatch:any) => (newLanguage:'en'|'pl'|'de') => {
   dispatch({ type: 'setLanguage', payload: { newLanguage } });
 };
 
+// Accept cookies
+const acceptCookies = (dispatch:any) => () => {
+  localStorage.setItem('hadDisplayedCookies', 'true');
+  dispatch({ type: 'acceptCookies' });
+};
+
 // Check if there is a theme set in localStorage
 const initialContextCheck = (dispatch:any) => () => {
   // Handling last theme
@@ -135,6 +148,8 @@ const initialState = {
 
 export const { Context, Provider } = createContext(
   globalReducer,
-  { changeTheme, initialContextCheck, setLanguage },
+  {
+    changeTheme, initialContextCheck, setLanguage, acceptCookies,
+  },
   initialState,
 );
