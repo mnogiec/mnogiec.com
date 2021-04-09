@@ -27,5 +27,10 @@
     "subtitle": "Wer bin",
     "title_text": "",
     "text": ""
+  },
+  "technologies":{
+    "title": "Technologien",
+    "subtitle": "",
+    "title_text": ""
   }
 }

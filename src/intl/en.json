@@ -27,5 +27,10 @@
     "subtitle": "Who am I?",
     "title_text": "If you want us to cooperate, it would be nice for you to know something about me. Just read this short summary below!",
     "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor."
+  },
+  "technologies":{
+    "title": "Technologies",
+    "subtitle": "I know and use",
+    "title_text": "These are the most important and crucial technologies I use on a daily basis. Skills, programming languages, tools and more!"
   }
 }

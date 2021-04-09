@@ -27,5 +27,10 @@
     "subtitle": "Kim jestem?",
     "title_text": "",
     "text": ""
+  },
+  "technologies":{
+    "title": "Technologie",
+    "subtitle": "Które znam i używam",
+    "title_text": ""
   }
 }
