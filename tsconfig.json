@@ -6,6 +6,7 @@
       "components/*": ["components/*"],
       "context/*": ["context/*"],
       "intl/*": ["intl/*"],
+      "misc/*": ["misc/*"],
       "pages/*": ["pages/*"],
       "pages_styles/*": ["pages_styles/*"],
     },
