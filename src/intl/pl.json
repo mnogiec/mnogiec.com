@@ -16,7 +16,10 @@
     "contactButton": "Kontakt"
   },
   "cookie":{
-    "text": "Ta strona wykorzystuje cookies, aby zagwarantować funkcjonalności na jak najwyższym poziomie.",
+    "text_start": "Ta strona używa ",
+    "text_cookies": "ciasteczek",
+    "text_link": "https://pl.wikipedia.org/wiki/HTTP_cookie",
+    "text_end": ", aby zagwarantować funkcjonalności na jak najwyższym poziomie.",
     "acceptButton": "Rozumiem"
   }
 }

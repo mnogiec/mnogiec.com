@@ -16,7 +16,10 @@
     "contactButton": "Kontakt mit mir"
   },
   "cookie":{
-    "text": "This website uses cookies to ensure you are getting the best possible experience.",
+    "text_start": "This website uses ",
+    "text_cookies": "cookies",
+    "text_link": "https://de.wikipedia.org/wiki/HTTP-Cookie",
+    "text_end": " to ensure you are getting the best possible experience.",
     "acceptButton": "Ich stimme zu"
   }
 }

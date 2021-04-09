@@ -16,7 +16,10 @@
     "contactButton": "Contact me"
   },
   "cookie":{
-    "text": "This website uses cookies to ensure you are getting the best possible experience.",
+    "text_start": "This website uses ",
+    "text_cookies": "cookies",
+    "text_link": "https://en.wikipedia.org/wiki/HTTP_cookie",
+    "text_end": " to ensure you are getting the best possible experience.",
     "acceptButton": "Accept"
   }
 }
