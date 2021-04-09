@@ -2,16 +2,6 @@ import styled from 'styled-components';
 import media from 'assets/styles/media';
 
 
-export const StyledPageWrapper = styled.main`
-  width: 100%;
-  padding: 0 3rem;
-
-  @media ${media.laptopL}{
-    width: 125rem;
-    margin: 0 auto;
-  }
-`;
-
 export const StyledBubblesContainer = styled.div`
   position: absolute;
   top: ${({ theme }) => theme.const.HEADER_HEIGHT};
@@ -44,6 +34,27 @@ export const StyledHeroWrapper = styled.div`
 
   @media ${media.desktop}{
     width: 155rem;
+    margin: 0 auto;
+  }
+`;
+
+export const StyledSection = styled.div`
+  width: 100%;
+  margin: 0 auto;
+  padding: 6rem 0;
+  display: flex;
+  flex-direction: column;
+  padding: 4rem 3rem;
+  background: linear-gradient(var(--color-sectionGradient-start), var(--color-sectionGradient-end));
+
+`;
+
+export const StyledSectionWrapper = styled.section`
+  display: flex;
+  flex-direction: column;
+
+  @media ${media.laptopL}{
+    width: 125rem;
     margin: 0 auto;
   }
 `;
@@ -178,4 +189,52 @@ export const StyledHeroSocialIcon = styled.img`
   @media ${media.laptop}{
     width: 2.5rem;
   }
+`;
+
+export const StyledAbout = styled.div`
+  display: flex;
+  flex-direction: column;
+  line-height: 4rem;
+
+  @media ${media.tablet}{
+    flex-direction: row-reverse;
+  }
+`;
+
+export const StyledAboutImageWrapper = styled.div`
+  width: 90vw;
+  max-width: 50rem;
+  margin: 0 auto 1.5rem auto;
+
+  @media ${media.tablet}{
+    max-width: initial;
+    width: auto;
+    margin: 0;
+    margin-left: 5rem;
+  }
+
+  @media ${media.laptop}{
+    margin-left: 10rem;
+  }
+
+  @media ${media.desktop}{
+    margin-left: 13rem;
+  }
+`;
+
+export const StyledAboutImage = styled.img`
+  display: block;
+  width: 100%;
+  padding: 2rem;
+  box-shadow: ${({ theme }) => theme.shadow};
+
+  @media ${media.tablet}{
+    padding: 0;
+    width: 40rem;
+  }
+`;
+
+export const StyledTechnologies = styled.div`
+  display: flex;
+  flex-wrap: wrap;
 `;
