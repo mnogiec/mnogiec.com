@@ -31,7 +31,6 @@ module.exports = {
         components: path.join(__dirname, 'src/components'),
         context: path.join(__dirname, 'src/context'),
         intl: path.join(__dirname, 'src/intl'),
-        misc: path.join(__dirname, 'src/misc'),
         pages: path.join(__dirname, 'src/pages'),
         pages_styles: path.join(__dirname, 'src/pages_styles'),
       },
