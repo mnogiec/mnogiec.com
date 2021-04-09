@@ -5,11 +5,12 @@ import media from 'assets/styles/media';
 
 export const StyledWrapper = styled.div`
   width: 100%;
-  margin: 4rem auto;
+  margin: 4rem auto 7rem auto;
   display: flex;
   flex-direction: column;
 
   @media ${media.laptop}{
+    margin: 4rem auto 10rem auto;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
