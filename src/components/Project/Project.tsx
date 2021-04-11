@@ -16,7 +16,7 @@ const Project:React.FC<T.Props> = ({
       </S.StyledTextWrapper>
       <S.StyledProjectImage src={img} alt={`${name} mockup`} type={type} />
       <S.StyledTechnologiesWrapper>
-        {technologies.map((technology) => <S.StyledTechnology>{technology}</S.StyledTechnology>)}
+        {technologies.map((tech) => <S.StyledTechnology key={tech}>{tech}</S.StyledTechnology>)}
       </S.StyledTechnologiesWrapper>
     </S.StyledProject>
   );
