@@ -7,7 +7,9 @@ import Heading from 'components/Heading/Heading';
 import Text from 'components/Text/Text';
 import Button from 'components/Button/Button';
 import Technology from 'components/Technology/Technology';
+import Project from 'components/Project/Project';
 import CookiesNotification from 'components/CookiesNotification/CookiesNotification';
+import theme from 'assets/styles/theme';
 
 import * as S from 'pages_styles/index.styles';
 
@@ -33,6 +35,11 @@ import reactIcon from 'assets/images/technologies/react.png';
 import reduxIcon from 'assets/images/technologies/redux.png';
 import sassIcon from 'assets/images/technologies/sass.png';
 import typescriptIcon from 'assets/images/technologies/typescript.png';
+
+import matematykaDlaCiebieImage from 'assets/images/projects/matematykaDlaCiebie.png';
+import unsealImage from 'assets/images/projects/unseal.png';
+import restauracjaStarkaImage from 'assets/images/projects/restauracjaStarka.png';
+import accademiaEnPlatoImage from 'assets/images/projects/accademiaEnPlato.png';
 
 
 const IndexPage = () => {
@@ -110,6 +117,52 @@ const IndexPage = () => {
             <Technology name="Git" img={gitIcon} />
             <Technology name="Adobe Xd" img={adobeXdIcon} />
           </S.StyledTechnologies>
+        </S.StyledSectionWrapper>
+      </S.StyledSection>
+      {/* PROJECTS */}
+      <S.StyledSection>
+        <S.StyledSectionWrapper>
+          <Heading
+            title={intl.formatMessage({ id: 'projects.title' })}
+            subtitle={intl.formatMessage({ id: 'projects.subtitle' })}
+          >
+            {intl.formatMessage({ id: 'projects.title_text' })}
+          </Heading>
+          <S.StyledProjects>
+            <Project
+              name={intl.formatMessage({ id: 'projects.matematykaDlaCiebie.title' })}
+              bgColor={theme.color.projects.matematykaDlaCiebie}
+              technologies={['React', 'Node']}
+              img={matematykaDlaCiebieImage}
+            >
+              {intl.formatMessage({ id: 'projects.matematykaDlaCiebie.text' })}
+            </Project>
+            <Project
+              name={intl.formatMessage({ id: 'projects.unseal.title' })}
+              bgColor={theme.color.projects.unseal}
+              technologies={['React', 'Typescript', 'Node']}
+              img={unsealImage}
+              type="unseal"
+            >
+              {intl.formatMessage({ id: 'projects.unseal.text' })}
+            </Project>
+            <Project
+              name={intl.formatMessage({ id: 'projects.restauracjaStarka.title' })}
+              bgColor={theme.color.projects.restauracjaStarka}
+              technologies={['Wordpress']}
+              img={restauracjaStarkaImage}
+            >
+              {intl.formatMessage({ id: 'projects.restauracjaStarka.text' })}
+            </Project>
+            <Project
+              name={intl.formatMessage({ id: 'projects.accademiaEnPlato.title' })}
+              bgColor={theme.color.projects.accademiaEnPlato}
+              technologies={['Html', 'Sass', 'Gulp']}
+              img={accademiaEnPlatoImage}
+            >
+              {intl.formatMessage({ id: 'projects.accademiaEnPlato.text' })}
+            </Project>
+          </S.StyledProjects>
         </S.StyledSectionWrapper>
       </S.StyledSection>
     </Layout>

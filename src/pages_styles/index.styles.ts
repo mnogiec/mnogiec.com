@@ -257,3 +257,10 @@ export const StyledTechnologies = styled.div`
     justify-content: space-between;
   }
 `;
+
+export const StyledProjects = styled.div`
+  margin: -3rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
