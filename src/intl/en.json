@@ -32,5 +32,26 @@
     "title": "Technologies",
     "subtitle": "I know and use",
     "title_text": "These are the most important and crucial technologies I use on a daily basis. Skills, programming languages, tools and more!"
+  },
+  "projects":{
+    "title": "Projects",
+    "subtitle": "I'm proud of",
+    "title_text": "Here is a list of some of my projects, that I have recently done. They required different skills, which I acquired during my career.",
+    "matematykaDlaCiebie":{
+      "title": "Matematyka dla Ciebie",
+      "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat."
+    },
+    "unseal":{
+      "title": "Unseal",
+      "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat."
+    },
+    "restauracjaStarka":{
+      "title": "Starka Restaurant",
+      "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat."
+    },
+    "accademiaEnPlato":{
+      "title": "En-plato Accademia",
+      "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat."
+    }
   }
 }
