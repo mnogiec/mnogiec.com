@@ -2,14 +2,21 @@ import styled from 'styled-components';
 import media from 'assets/styles/media';
 
 
-export const StyledNotificationWrapper = styled.div`
+export const StyledNotificationWrapper = styled.div<{show:boolean}>`
   width: 100%;
   position: fixed;
   bottom: 2rem;
   left: 0;
   display: flex;
   justify-content: center;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  opacity: 0;
+  visibility: hidden;
   z-index: 10;
+
+  opacity: ${({ show }) => show && '1'};
+  visibility: ${({ show }) => show && 'visible'};
+  transform: ${({ show }) => show && 'translateY(0)'};
 
   @media ${media.tabletL}{
     padding: 0 3.5rem;
@@ -32,7 +39,7 @@ export const StyledNotificationWrapper = styled.div`
   }
 `;
 
-export const StyledNotification = styled.div<{show:boolean}>`
+export const StyledNotification = styled.div`
   width: 90vw;
   max-width: 50rem;
   padding: 1.5rem;
@@ -42,13 +49,6 @@ export const StyledNotification = styled.div<{show:boolean}>`
   background-color: var(--color-headerBackground);
   border-radius: 2rem;
   box-shadow: ${({ theme }) => theme.shadow};
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
-
-  opacity: ${({ show }) => show && '1'};
-  visibility: ${({ show }) => show && 'visible'};
-  transform: ${({ show }) => show && 'translateY(0)'};
 
   @media ${media.tabletL}{
     max-width: 45rem;

@@ -17,8 +17,8 @@ const CookiesNotification:React.FC<T.Props> = ({ show }) => {
 
 
   return (
-    <S.StyledNotificationWrapper>
-      <S.StyledNotification show={show}>
+    <S.StyledNotificationWrapper show={show}>
+      <S.StyledNotification>
         <S.StyledTop>
           <S.StyledIcon src={cookieSvg} alt="Cookie" />
           <span>
