@@ -6,6 +6,7 @@ import Layout from 'components/Layout/Layout';
 import Heading from 'components/Heading/Heading';
 import Text from 'components/Text/Text';
 import Button from 'components/Button/Button';
+import Technology from 'components/Technology/Technology';
 import CookiesNotification from 'components/CookiesNotification/CookiesNotification';
 
 import * as S from 'pages_styles/index.styles';
@@ -93,66 +94,21 @@ const IndexPage = () => {
             {intl.formatMessage({ id: 'technologies.title_text' })}
           </Heading>
           <S.StyledTechnologies>
-            <S.StyledTechnologiesBox>
-              <S.StyledTechnologiesImage src={reactIcon} alt="React" />
-              <Text bold>React</Text>
-            </S.StyledTechnologiesBox>
-            <S.StyledTechnologiesBox>
-              <S.StyledTechnologiesImage src={typescriptIcon} alt="Typescript" />
-              <Text bold>Typescript</Text>
-            </S.StyledTechnologiesBox>
-            <S.StyledTechnologiesBox>
-              <S.StyledTechnologiesImage src={reduxIcon} alt="Redux" />
-              <Text bold>Redux</Text>
-            </S.StyledTechnologiesBox>
-            <S.StyledTechnologiesBox>
-              <S.StyledTechnologiesImage src={gatsbyJsIcon} alt="Gatsby.js" />
-              <Text bold>Gatsby.js</Text>
-            </S.StyledTechnologiesBox>
-            <S.StyledTechnologiesBox>
-              <S.StyledTechnologiesImage src={reactNativeIcon} alt="React Native" />
-              <Text bold>React Native</Text>
-            </S.StyledTechnologiesBox>
-            <S.StyledTechnologiesBox>
-              <S.StyledTechnologiesImage src={javascriptIcon} alt="Javascript" />
-              <Text bold>Javascript</Text>
-            </S.StyledTechnologiesBox>
-            <S.StyledTechnologiesBox>
-              <S.StyledTechnologiesImage src={htmlIcon} alt="HTML" />
-              <Text bold>HTML</Text>
-            </S.StyledTechnologiesBox>
-            <S.StyledTechnologiesBox>
-              <S.StyledTechnologiesImage src={cssIcon} alt="CSS" />
-              <Text bold>CSS</Text>
-            </S.StyledTechnologiesBox>
-            <S.StyledTechnologiesBox>
-              <S.StyledTechnologiesImage src={sassIcon} alt="Sass" />
-              <Text bold>Sass</Text>
-            </S.StyledTechnologiesBox>
-            <S.StyledTechnologiesBox>
-              <S.StyledTechnologiesImage src={nodeJsIcon} alt="Node.js" />
-              <Text bold>Node.js</Text>
-            </S.StyledTechnologiesBox>
-            <S.StyledTechnologiesBox>
-              <S.StyledTechnologiesImage src={mongoDBIcon} alt="MongoDB" />
-              <Text bold>MongoDB</Text>
-            </S.StyledTechnologiesBox>
-            <S.StyledTechnologiesBox>
-              <S.StyledTechnologiesImage src={mySqlIcon} alt="MySQL" />
-              <Text bold>MySQL</Text>
-            </S.StyledTechnologiesBox>
-            <S.StyledTechnologiesBox>
-              <S.StyledTechnologiesImage src={pythonIcon} alt="Python" />
-              <Text bold>Python</Text>
-            </S.StyledTechnologiesBox>
-            <S.StyledTechnologiesBox>
-              <S.StyledTechnologiesImage src={gitIcon} alt="Git" />
-              <Text bold>Git</Text>
-            </S.StyledTechnologiesBox>
-            <S.StyledTechnologiesBox>
-              <S.StyledTechnologiesImage src={adobeXdIcon} alt="Adobe Xd" />
-              <Text bold>Adobe Xd</Text>
-            </S.StyledTechnologiesBox>
+            <Technology name="React" img={reactIcon} />
+            <Technology name="Typescript" img={typescriptIcon} />
+            <Technology name="Redux" img={reduxIcon} />
+            <Technology name="Gatsby.js" img={gatsbyJsIcon} />
+            <Technology name="React Native" img={reactNativeIcon} />
+            <Technology name="Javascript" img={javascriptIcon} />
+            <Technology name="HTML" img={htmlIcon} />
+            <Technology name="CSS" img={cssIcon} />
+            <Technology name="Sass" img={sassIcon} />
+            <Technology name="Node.js" img={nodeJsIcon} />
+            <Technology name="MongoDB" img={mongoDBIcon} />
+            <Technology name="MySQL" img={mySqlIcon} />
+            <Technology name="Python" img={pythonIcon} />
+            <Technology name="Git" img={gitIcon} />
+            <Technology name="Adobe Xd" img={adobeXdIcon} />
           </S.StyledTechnologies>
         </S.StyledSectionWrapper>
       </S.StyledSection>
