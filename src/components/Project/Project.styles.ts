@@ -49,7 +49,7 @@ export const StyledTextWrapper = styled.div`
   }
 `;
 
-export const StyledProjectImage = styled.img<{type:string}>`
+export const StyledProjectImage = styled.img<{type?:string}>`
   display: block;
   width: 100%;
   margin: 3rem 0;
