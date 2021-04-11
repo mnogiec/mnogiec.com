@@ -30,6 +30,12 @@ export default {
       light: '#665F82',
       dark: '#AEA48F',
     },
+    projects: {
+      matematykaDlaCiebie: '#4B286E',
+      unseal: '#282D6E',
+      restauracjaStarka: '#C22133',
+      accademiaEnPlato: '#28201E',
+    },
   },
   font: {
     family: {
