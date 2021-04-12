@@ -160,7 +160,11 @@ const IndexPage = () => {
 
 
   return (
-    <Layout pageTitle="Strona główna" header>
+    <Layout
+      pageTitle={intl.formatMessage({ id: 'pages.landing.title' })}
+      lang={state.language}
+      header
+    >
       <CookiesNotification show={!state.hadDisplayedCookies} />
       <S.StyledHomeScroller id="home" />
 

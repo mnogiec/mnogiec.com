@@ -4,13 +4,14 @@ import ReactHelmet from 'react-helmet';
 
 type Props = {
   pageTitle?: string
+  lang: string
 }
 
 
-const Helmet:React.FC<Props> = ({ pageTitle }) => (
+const Helmet:React.FC<Props> = ({ pageTitle, lang }) => (
     <ReactHelmet>
       {/* HTML tag */}
-      <html lang="pl" />
+      <html lang={lang} />
 
       {/* Basics */}
       <meta charSet="utf-8" />
