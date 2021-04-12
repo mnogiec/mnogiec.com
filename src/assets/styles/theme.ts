@@ -30,6 +30,20 @@ export default {
       light: '#665F82',
       dark: '#AEA48F',
     },
+    scrollbar: {
+      background: {
+        light: '#F9F9F9',
+        dark: '#181818',
+      },
+      thumb: {
+        light: '#909090',
+        dark: '#585858',
+      },
+      thumbHover: {
+        light: '#B6B6B6',
+        dark: '#909090',
+      },
+    },
     projects: {
       matematykaDlaCiebie: '#4B286E',
       unseal: '#282D6E',

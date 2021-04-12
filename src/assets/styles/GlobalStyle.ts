@@ -26,6 +26,9 @@ export default createGlobalStyle`
     --color-headerBackground: ${theme.color.headerBackground.light};
     --color-font: ${theme.color.font.light};
     --color-subHeading: ${theme.color.subHeading.light};
+    --color-scrollBarBackground: ${theme.color.scrollbar.background.light};
+    --color-scrollBarThumb: ${theme.color.scrollbar.thumb.light};
+    --color-scrollBarThumbHover: ${theme.color.scrollbar.thumbHover.light};
   }
 
   html{
@@ -54,5 +57,22 @@ export default createGlobalStyle`
 
   img::selection{
     background-color: transparent;
+  }
+
+  ::-webkit-scrollbar{
+    width: 1rem;
+  }
+  ::-webkit-scrollbar-track{
+    background-color: var(--color-scrollBarBackground);
+
+  }
+  ::-webkit-scrollbar-thumb{
+    background-color: var(--color-scrollBarThumb);
+    border-radius: 2rem;
+    transition: .2s;
+
+    &:hover{
+      background-color: var(--color-scrollBarThumbHover);
+    }
   }
 `;

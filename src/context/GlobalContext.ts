@@ -58,6 +58,9 @@ const changeCSSVariables = (newTheme:'light'|'dark') => {
     root.setProperty('--color-headerBackground', theme.color.headerBackground.light);
     root.setProperty('--color-font', theme.color.font.light);
     root.setProperty('--color-subHeading', theme.color.subHeading.light);
+    root.setProperty('--color-scrollBarBackground', theme.color.scrollbar.background.light);
+    root.setProperty('--color-scrollBarThumb', theme.color.scrollbar.thumb.light);
+    root.setProperty('--color-scrollBarThumbHover', theme.color.scrollbar.thumbHover.light);
   } else if (newTheme === 'dark') {
     root.setProperty('--color-primary', theme.color.primary.dark);
     root.setProperty('--color-background', theme.color.background.dark);
@@ -66,6 +69,9 @@ const changeCSSVariables = (newTheme:'light'|'dark') => {
     root.setProperty('--color-headerBackground', theme.color.headerBackground.dark);
     root.setProperty('--color-font', theme.color.font.dark);
     root.setProperty('--color-subHeading', theme.color.subHeading.dark);
+    root.setProperty('--color-scrollBarBackground', theme.color.scrollbar.background.dark);
+    root.setProperty('--color-scrollBarThumb', theme.color.scrollbar.thumb.dark);
+    root.setProperty('--color-scrollBarThumbHover', theme.color.scrollbar.thumbHover.dark);
   }
 };
 
