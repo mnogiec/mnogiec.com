@@ -4,8 +4,13 @@ import * as T from './Heading.types';
 import * as S from './Heading.styles';
 
 
-const Heading:React.FC<T.Props> = ({ title, subtitle, children }) => (
+const Heading:React.FC<T.Props> = ({
+ title, subtitle, children, id,
+}) => (
     <S.StyledWrapper>
+      {id && (
+        <S.StyledScroller id={id} />
+      )}
       <S.StyledHeadingPart>
         <S.StyledTitle>
           {title}
