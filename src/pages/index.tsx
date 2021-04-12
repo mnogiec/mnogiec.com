@@ -44,6 +44,9 @@ import unsealImage from 'assets/images/projects/unseal.png';
 import restauracjaStarkaImage from 'assets/images/projects/restauracjaStarka.png';
 import accademiaEnPlatoImage from 'assets/images/projects/accademiaEnPlato.png';
 
+import scrollupDarkIcon from 'assets/images/contact/scrollup_dark.svg';
+import scrollupLightIcon from 'assets/images/contact/scrollup_light.svg';
+
 
 const IndexPage = () => {
   const intl = useIntl();
@@ -73,9 +76,6 @@ const IndexPage = () => {
   });
 
 
-  // TODO: Validation (min-length etc.)
-  // Zrobic wlasciwosc focused i walidowac irl dopiero gdy nie jestem sfocusowany?
-  // Niektore walidować dopiero podczas nacisniecia Send
   const validateContactForm = () => {
     const newErrors:any = {
       name: undefined,
@@ -357,6 +357,10 @@ const IndexPage = () => {
               <Button submit bold>{intl.formatMessage({ id: 'contact.button' })}</Button>
             </S.StyledContactSectionButtonWrapper>
           </S.StyledContactSection>
+
+          <S.StyledScrollupButton>
+            <S.StyledScrollupIcon src={state.theme === 'light' ? scrollupLightIcon : scrollupDarkIcon} alt="Home" />
+          </S.StyledScrollupButton>
         </S.StyledSectionWrapper>
       </S.StyledSection>
 

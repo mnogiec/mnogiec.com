@@ -51,6 +51,7 @@ export const StyledSection = styled.div`
 export const StyledSectionWrapper = styled.section`
   display: flex;
   flex-direction: column;
+  position: relative;
 
   @media ${media.laptopL}{
     width: 125rem;
@@ -270,8 +271,28 @@ export const StyledContactSection = styled.form`
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  position: relative;
 `;
 
 export const StyledContactSectionButtonWrapper = styled.div`
   margin: 2rem auto 0 auto;
+`;
+
+export const StyledScrollupButton = styled.button`
+  display: none;
+  background: none;
+  border: none;
+  outline: none;
+  position: absolute;
+  right: -5vw;
+  bottom: 5vw;
+  cursor: pointer;
+
+  @media ${media.desktop}{
+    display: block;
+  }
+`;
+
+export const StyledScrollupIcon = styled.img`
+  display: block;
 `;
