@@ -1,4 +1,14 @@
 {
+  "aria":{
+    "hamburgerMenu": {
+      "open": "Otwórz menu",
+      "close": "Zamknij menu"
+    },
+    "languagesButton": "Zmień język",
+    "themeButton": "Zmień tło strony",
+    "scrollupButton": "Idź na początek strony",
+    "logo": "Logo strony, idź na początek strony"
+  },
   "header":{
     "logoHover": "Strona główna",
     "about": "O mnie",

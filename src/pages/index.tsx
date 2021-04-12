@@ -363,7 +363,7 @@ const IndexPage = () => {
             </S.StyledContactSectionButtonWrapper>
           </S.StyledContactSection>
 
-          <S.StyledScrollupButton onClick={() => scrollTo('#home')}>
+          <S.StyledScrollupButton onClick={() => scrollTo('#home')} aria-label={intl.formatMessage({ id: 'aria.scrollupButton' })}>
             <S.StyledScrollupIcon src={state.theme === 'light' ? scrollupLightIcon : scrollupDarkIcon} alt="Home" />
           </S.StyledScrollupButton>
         </S.StyledSectionWrapper>

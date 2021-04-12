@@ -62,11 +62,18 @@ const Header:React.FC = () => {
 
   return (
     <S.StyledHeader scroll={scroll}>
-      <S.StyledLogoWrapper title={intl.formatMessage({ id: 'header.logoHover' })} onClick={() => scrollTo('#home')}>
+      <S.StyledLogoWrapper
+        aria-label={intl.formatMessage({ id: 'aria.logo' })}
+        title={intl.formatMessage({ id: 'header.logoHover' })}
+        onClick={() => scrollTo('#home')}
+      >
         <S.StyledLogoImage src={state.theme === 'light' ? logoLightSvg : logoDarkSvg} alt="MNogiec.com logo" />
         <S.StyledTextImage src={state.theme === 'light' ? textLightSvg : textDarkSvg} alt="MNOGIEC" />
       </S.StyledLogoWrapper>
-      <S.StyledHamburgerWrapper onClick={() => setIsSidemenuOpen((state) => !state)}>
+      <S.StyledHamburgerWrapper
+        aria-label={isSideMenuOpen ? intl.formatMessage({ id: 'aria.hamburgerMenu.close' }) : intl.formatMessage({ id: 'aria.hamburgerMenu.open' })}
+        onClick={() => setIsSidemenuOpen((state) => !state)}
+      >
         <S.StyledHamburgerTop show={isSideMenuOpen} />
         <S.StyledHamburgerMiddle show={isSideMenuOpen} />
         <S.StyledHamburgerBottom show={isSideMenuOpen} />
@@ -116,6 +123,7 @@ const Header:React.FC = () => {
               src={languageIcon}
               alt={intl.formatMessage({ id: 'header.language' })}
               colorMode={state.theme}
+              aria-label={intl.formatMessage({ id: 'aria.languagesButton' })}
               onClick={() => setIsLanguageMenuOpen((state) => !state)}
             />
             <S.StyledLanguageDropdown show={isLanguageMenuOpen}>
@@ -141,7 +149,11 @@ const Header:React.FC = () => {
               </S.StyledLanguageList>
             </S.StyledLanguageDropdown>
           </S.StyledLanguageWrapper>
-          <S.StyledThemeButton onClick={changeTheme} colorMode={state.theme}>
+          <S.StyledThemeButton
+            aria-label={intl.formatMessage({ id: 'aria.themeButton' })}
+            onClick={changeTheme}
+            colorMode={state.theme}
+          >
             <img src={sunSvg} alt={intl.formatMessage({ id: 'header.lightTheme' })} />
             <img src={moonSvg} alt={intl.formatMessage({ id: 'header.darkTheme' })} />
           </S.StyledThemeButton>
