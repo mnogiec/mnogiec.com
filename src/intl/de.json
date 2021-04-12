@@ -53,5 +53,23 @@
       "title": "En-plato Accademia",
       "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat."
     }
+  },
+  "contact":{
+    "title": "Kontakt",
+    "subtitle": "",
+    "title_text": "",
+    "nameInput":{
+      "placeholder": "",
+      "label": ""
+    },
+    "emailInput":{
+      "placeholder": "",
+      "label": ""
+    },
+    "messageInput":{
+      "placeholder": "",
+      "label": ""
+    },
+    "button": ""
   }
 }

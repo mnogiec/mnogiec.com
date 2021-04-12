@@ -53,5 +53,23 @@
       "title": "Accademia En-plato",
       "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat."
     }
+  },
+  "contact":{
+    "title": "Kontakt",
+    "subtitle": "Porozmawiajmy!",
+    "title_text": "",
+    "nameInput":{
+      "placeholder": "Jak mogę się do Ciebie zwracać?",
+      "label": "Nazwa"
+    },
+    "emailInput":{
+      "placeholder": "Jaki jest Twój adres e-mail?",
+      "label": "Adres e-mail"
+    },
+    "messageInput":{
+      "placeholder": "Napisz do mnie wiadomość",
+      "label": "Wiadomość"
+    },
+    "button": "Wyślij"
   }
 }

@@ -53,5 +53,23 @@
       "title": "En-plato Accademia",
       "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat."
     }
+  },
+  "contact":{
+    "title": "Contact",
+    "subtitle": "Let's talk!",
+    "title_text": "I believe communication is the key! Please feel free to use the form below to send me a message about any matter.",
+    "nameInput":{
+      "placeholder": "What's your name?",
+      "label": "Name"
+    },
+    "emailInput":{
+      "placeholder": "What's your e-mail address?",
+      "label": "E-mail address"
+    },
+    "messageInput":{
+      "placeholder": "Write your message",
+      "label": "Message"
+    },
+    "button": "Send"
   }
 }
