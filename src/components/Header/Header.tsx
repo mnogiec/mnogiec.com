@@ -1,6 +1,7 @@
 import React, {
  useState, useContext, useEffect, useRef,
 } from 'react';
+import scrollTo from 'gatsby-plugin-smoothscroll';
 import { useIntl } from 'gatsby-plugin-intl';
 
 import { Context as GlobalContext } from 'context/GlobalContext';
@@ -61,7 +62,7 @@ const Header:React.FC = () => {
 
   return (
     <S.StyledHeader scroll={scroll}>
-      <S.StyledLogoWrapper title={intl.formatMessage({ id: 'header.logoHover' })} onClick={() => null}>
+      <S.StyledLogoWrapper title={intl.formatMessage({ id: 'header.logoHover' })} onClick={() => scrollTo('#home')}>
         <S.StyledLogoImage src={state.theme === 'light' ? logoLightSvg : logoDarkSvg} alt="MNogiec.com logo" />
         <S.StyledTextImage src={state.theme === 'light' ? textLightSvg : textDarkSvg} alt="MNOGIEC" />
       </S.StyledLogoWrapper>
@@ -73,16 +74,40 @@ const Header:React.FC = () => {
       <S.StyledNavigation isOpen={isSideMenuOpen}>
         <S.StyledNavList>
           <S.StyledNavItem>
-            <S.StyledNavLink>{intl.formatMessage({ id: 'header.about' })}</S.StyledNavLink>
+            <S.StyledNavLink onClick={() => {
+              setIsSidemenuOpen(false);
+              scrollTo('#about');
+            }}
+            >
+              {intl.formatMessage({ id: 'header.about' })}
+            </S.StyledNavLink>
           </S.StyledNavItem>
           <S.StyledNavItem>
-            <S.StyledNavLink>{intl.formatMessage({ id: 'header.technologies' })}</S.StyledNavLink>
+            <S.StyledNavLink onClick={() => {
+              setIsSidemenuOpen(false);
+              scrollTo('#technologies');
+            }}
+            >
+              {intl.formatMessage({ id: 'header.technologies' })}
+            </S.StyledNavLink>
           </S.StyledNavItem>
           <S.StyledNavItem>
-            <S.StyledNavLink>{intl.formatMessage({ id: 'header.projects' })}</S.StyledNavLink>
+            <S.StyledNavLink onClick={() => {
+              setIsSidemenuOpen(false);
+              scrollTo('#projects');
+            }}
+            >
+              {intl.formatMessage({ id: 'header.projects' })}
+            </S.StyledNavLink>
           </S.StyledNavItem>
           <S.StyledNavItem>
-            <S.StyledNavLink>{intl.formatMessage({ id: 'header.contact' })}</S.StyledNavLink>
+            <S.StyledNavLink onClick={() => {
+              setIsSidemenuOpen(false);
+              scrollTo('#contact');
+            }}
+            >
+              {intl.formatMessage({ id: 'header.contact' })}
+            </S.StyledNavLink>
           </S.StyledNavItem>
         </S.StyledNavList>
         <S.StyledSubnavWrapper>

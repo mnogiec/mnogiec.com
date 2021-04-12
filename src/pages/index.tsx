@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import scrollTo from 'gatsby-plugin-smoothscroll';
 import { useIntl } from 'gatsby-plugin-intl';
 
 import { Context as GlobalContext } from 'context/GlobalContext';
@@ -161,6 +162,7 @@ const IndexPage = () => {
   return (
     <Layout pageTitle="Strona główna" header>
       <CookiesNotification show={!state.hadDisplayedCookies} />
+      <S.StyledHomeScroller id="home" />
 
       {/* HERO */}
       <S.StyledHeroWrapper>
@@ -170,8 +172,8 @@ const IndexPage = () => {
             <S.StyledHeroSubtitle>{intl.formatMessage({ id: 'hero.subtitle' })}</S.StyledHeroSubtitle>
           </S.StyledHeroTitlesWrapper>
           <S.StyledHeroButtonsWrapper>
-            <Button bold clicked={() => null}>{intl.formatMessage({ id: 'hero.projectsButton' })}</Button>
-            <Button bold basic clicked={() => null}>{intl.formatMessage({ id: 'hero.contactButton' })}</Button>
+            <Button bold clicked={() => scrollTo('#projects')}>{intl.formatMessage({ id: 'hero.projectsButton' })}</Button>
+            <Button bold basic clicked={() => scrollTo('#contact')}>{intl.formatMessage({ id: 'hero.contactButton' })}</Button>
           </S.StyledHeroButtonsWrapper>
           <S.StyledHeroImage src={state.theme === 'light' ? computerLightSvg : computerDarkSvg} alt="" />
         </S.StyledHeroMainBox>
@@ -191,7 +193,7 @@ const IndexPage = () => {
       {/* ABOUT */}
       <S.StyledSection>
         <S.StyledSectionWrapper>
-          <Heading title={intl.formatMessage({ id: 'about.title' })} subtitle={intl.formatMessage({ id: 'about.subtitle' })}>
+          <Heading id="about" title={intl.formatMessage({ id: 'about.title' })} subtitle={intl.formatMessage({ id: 'about.subtitle' })}>
             {intl.formatMessage({ id: 'about.title_text' })}
           </Heading>
           <S.StyledAbout>
@@ -209,6 +211,7 @@ const IndexPage = () => {
       <S.StyledSection>
         <S.StyledSectionWrapper>
           <Heading
+            id="technologies"
             title={intl.formatMessage({ id: 'technologies.title' })}
             subtitle={intl.formatMessage({ id: 'technologies.subtitle' })}
           >
@@ -238,6 +241,7 @@ const IndexPage = () => {
       <S.StyledSection>
         <S.StyledSectionWrapper>
           <Heading
+            id="projects"
             title={intl.formatMessage({ id: 'projects.title' })}
             subtitle={intl.formatMessage({ id: 'projects.subtitle' })}
           >
@@ -285,6 +289,7 @@ const IndexPage = () => {
       <S.StyledSection>
         <S.StyledSectionWrapper>
           <Heading
+            id="contact"
             title={intl.formatMessage({ id: 'contact.title' })}
             subtitle={intl.formatMessage({ id: 'contact.subtitle' })}
           >
@@ -358,7 +363,7 @@ const IndexPage = () => {
             </S.StyledContactSectionButtonWrapper>
           </S.StyledContactSection>
 
-          <S.StyledScrollupButton>
+          <S.StyledScrollupButton onClick={() => scrollTo('#home')}>
             <S.StyledScrollupIcon src={state.theme === 'light' ? scrollupLightIcon : scrollupDarkIcon} alt="Home" />
           </S.StyledScrollupButton>
         </S.StyledSectionWrapper>

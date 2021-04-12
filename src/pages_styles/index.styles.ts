@@ -2,6 +2,12 @@ import styled from 'styled-components';
 import media from 'assets/styles/media';
 
 
+export const StyledHomeScroller = styled.div`
+  position: absolute;
+  top: -10px;
+  left: 0;
+`;
+
 export const StyledBubblesContainer = styled.div`
   position: absolute;
   top: ${({ theme }) => theme.const.HEADER_HEIGHT};

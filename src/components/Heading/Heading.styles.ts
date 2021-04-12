@@ -52,3 +52,8 @@ export const StyledText = styled.p`
   color: var(--color-subHeading)
 `;
 
+export const StyledScroller = styled.div`
+  position: absolute;
+  left: 0;
+  top: -7rem;
+`;
