@@ -24,10 +24,10 @@ const Footer:React.FC = () => {
         <Text bold inline> &copy; {new Date().getFullYear()}</Text>
       </S.StyledTextWrapper>
       <S.StyledIconsWrapper>
-        <S.StyledLink target="_blank" href="https://www.linkedin.com/in/nogiecmikolaj/">
+        <S.StyledLink target="_blank" href="https://www.linkedin.com/in/nogiecmikolaj/" rel="noreferrer">
           <S.StyledIcon src={state.theme === 'light' ? linkedinIconLight : linkedinIconDark} alt="LinkedIn" />
         </S.StyledLink>
-        <S.StyledLink target="_blank" href="https://github.com/mnogiec">
+        <S.StyledLink target="_blank" href="https://github.com/mnogiec" rel="noreferrer">
           <S.StyledIcon src={state.theme === 'light' ? githubIconLight : githubIconDark} alt="Github" />
         </S.StyledLink>
         <S.StyledLink target="_blank" href="mailto:nogiecmikolaj@gmail.com">

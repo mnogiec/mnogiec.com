@@ -178,10 +178,10 @@ const IndexPage = () => {
           <S.StyledHeroImage src={state.theme === 'light' ? computerLightSvg : computerDarkSvg} alt="" />
         </S.StyledHeroMainBox>
         <S.StyledHeroBottomBar>
-          <S.StyledHeroSocialLink href="https://www.linkedin.com/in/nogiecmikolaj/" target="_blank">
+          <S.StyledHeroSocialLink href="https://www.linkedin.com/in/nogiecmikolaj/" rel="noreferrer" target="_blank">
             <S.StyledHeroSocialIcon alt="LinkedIn" src={linkedinSvg} />
           </S.StyledHeroSocialLink>
-          <S.StyledHeroSocialLink href="https://github.com/mnogiec" target="_blank">
+          <S.StyledHeroSocialLink href="https://github.com/mnogiec" rel="noreferrer" target="_blank">
             <S.StyledHeroSocialIcon alt="GitHub" src={githubSvg} />
           </S.StyledHeroSocialLink>
           <S.StyledHeroSocialLink href="mailto:nogiecmikolaj@gmail.com" target="_blank">

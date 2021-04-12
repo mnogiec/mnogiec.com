@@ -23,7 +23,12 @@ const CookiesNotification:React.FC<T.Props> = ({ show }) => {
           <S.StyledIcon src={cookieSvg} alt="Cookie" />
           <span>
             <Text size="s" inline>{intl.formatMessage({ id: 'cookie.text_start' })}</Text>
-            <S.StyledLink target="_blank" href={intl.formatMessage({ id: 'cookie.text_link' })} title="Wikipedia">
+            <S.StyledLink
+              target="_blank"
+              href={intl.formatMessage({ id: 'cookie.text_link' })}
+              title="Wikipedia"
+              rel="noreferrer"
+            >
               {intl.formatMessage({ id: 'cookie.text_cookies' })}
             </S.StyledLink>
             <Text size="s" inline>{intl.formatMessage({ id: 'cookie.text_end' })}</Text>
