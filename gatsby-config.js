@@ -14,6 +14,7 @@ module.exports = {
     'gatsby-plugin-gatsby-cloud',
     'gatsby-plugin-typescript',
     'gatsby-plugin-eslint',
+    'gatsby-plugin-smoothscroll',
     {
       resolve: 'gatsby-plugin-intl',
       options: {
