@@ -9,6 +9,11 @@
     "scrollupButton": "Go to home",
     "logo": "Page logo, go to home"
   },
+  "pages":{
+    "landing":{
+      "title": "MNogiec | React developer"
+    }
+  },
   "header":{
     "logoHover": "Home",
     "about": "About",

@@ -9,6 +9,11 @@
     "scrollupButton": "Idź na początek strony",
     "logo": "Logo strony, idź na początek strony"
   },
+  "pages":{
+    "landing":{
+      "title": "MNogiec | React developer"
+    }
+  },
   "header":{
     "logoHover": "Strona główna",
     "about": "O mnie",

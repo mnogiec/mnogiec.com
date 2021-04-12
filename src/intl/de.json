@@ -9,6 +9,11 @@
     "scrollupButton": "",
     "logo": ""
   },
+  "pages":{
+    "landing":{
+      "title": "MNogiec | React Entwickler"
+    }
+  },
   "header":{
     "logoHover": "Hauptseite",
     "about": "Über mich",
