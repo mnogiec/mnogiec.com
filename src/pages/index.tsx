@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useIntl } from 'gatsby-plugin-intl';
 
 import { Context as GlobalContext } from 'context/GlobalContext';
@@ -8,7 +8,10 @@ import Text from 'components/Text/Text';
 import Button from 'components/Button/Button';
 import Technology from 'components/Technology/Technology';
 import Project from 'components/Project/Project';
+import TextInput from 'components/Input/TextInput/TextInput';
+import TextArea from 'components/Input/TextArea/TextArea';
 import CookiesNotification from 'components/CookiesNotification/CookiesNotification';
+import Footer from 'components/Footer/Footer';
 import theme from 'assets/styles/theme';
 
 import * as S from 'pages_styles/index.styles';
@@ -47,9 +50,118 @@ const IndexPage = () => {
   const { state } = useContext(GlobalContext);
 
 
+  const [name, setName] = useState({
+    value: '',
+    wasTouched: false,
+    isFocused: false,
+  });
+  const [email, setEmail] = useState({
+    value: '',
+    wasTouched: false,
+    isFocused: false,
+  });
+  const [message, setMessage] = useState({
+    value: '',
+    wasTouched: false,
+    isFocused: false,
+  });
+
+  const [errors, setErrors] = useState<any>({
+    name: undefined,
+    email: undefined,
+    message: undefined,
+  });
+
+
+  // TODO: Validation (min-length etc.)
+  // Zrobic wlasciwosc focused i walidowac irl dopiero gdy nie jestem sfocusowany?
+  // Niektore walidować dopiero podczas nacisniecia Send
+  const validateContactForm = () => {
+    const newErrors:any = {
+      name: undefined,
+      email: undefined,
+      message: undefined,
+    };
+
+    // NAME:
+    if (name.wasTouched) {
+      if (name.value.length === 0 && name.wasTouched) {
+        // required
+        newErrors.name = 'required';
+      } else if (name.value.length < 2) {
+        // minLength
+        newErrors.name = 'minLength';
+      } else if (name.value.length > 100) {
+        // maxLength
+        newErrors.name = 'maxLength';
+      }
+    }
+
+    const mailRegExp = /^\S+@\S+\.\S+$/;
+    // EMAIL:
+    if (email.wasTouched) {
+      if (email.value.length === 0 && email.wasTouched) {
+        // required
+        newErrors.email = 'required';
+      } else if (email.value.length < 3) {
+        // minLength
+        newErrors.email = 'minLength';
+      } else if (email.value.length > 100) {
+        // maxLength
+        newErrors.email = 'maxLength';
+      } else if (email.value.match(mailRegExp) === null) {
+        newErrors.email = 'pattern';
+      }
+    }
+
+    // MESSAGE:
+    if (message.wasTouched) {
+      if (message.value.length === 0) {
+        // required
+        newErrors.message = 'required';
+      } else if (message.value.length < 3) {
+        // minLength
+        newErrors.message = 'minLength';
+      } else if (message.value.length > 1000) {
+        // maxLength
+        newErrors.message = 'maxLength';
+      }
+    }
+
+    setErrors(newErrors);
+  };
+
+  const onContactSubmit:any = (event:Event) => {
+    event.preventDefault();
+
+    setName((state) => ({
+      ...state,
+      wasTouched: true,
+    }));
+    setEmail((state) => ({
+      ...state,
+      wasTouched: true,
+    }));
+    setMessage((state) => ({
+      ...state,
+      wasTouched: true,
+    }));
+
+    if ((!errors.name && !errors.email && !errors.message)
+    && name.wasTouched && email.wasTouched && message.wasTouched) {
+      // SUBMIT
+    }
+  };
+
+
+  // Validation
+  useEffect(validateContactForm, [name, email, message]);
+
+
   return (
     <Layout pageTitle="Strona główna" header>
       <CookiesNotification show={!state.hadDisplayedCookies} />
+
       {/* HERO */}
       <S.StyledHeroWrapper>
         <S.StyledHeroMainBox>
@@ -75,6 +187,7 @@ const IndexPage = () => {
           </S.StyledHeroSocialLink>
         </S.StyledHeroBottomBar>
       </S.StyledHeroWrapper>
+
       {/* ABOUT */}
       <S.StyledSection>
         <S.StyledSectionWrapper>
@@ -91,6 +204,7 @@ const IndexPage = () => {
           </S.StyledAbout>
         </S.StyledSectionWrapper>
       </S.StyledSection>
+
       {/* TECHNOLOGIES */}
       <S.StyledSection>
         <S.StyledSectionWrapper>
@@ -119,6 +233,7 @@ const IndexPage = () => {
           </S.StyledTechnologies>
         </S.StyledSectionWrapper>
       </S.StyledSection>
+
       {/* PROJECTS */}
       <S.StyledSection>
         <S.StyledSectionWrapper>
@@ -165,6 +280,88 @@ const IndexPage = () => {
           </S.StyledProjects>
         </S.StyledSectionWrapper>
       </S.StyledSection>
+
+      {/* CONTACT */}
+      <S.StyledSection>
+        <S.StyledSectionWrapper>
+          <Heading
+            title={intl.formatMessage({ id: 'contact.title' })}
+            subtitle={intl.formatMessage({ id: 'contact.subtitle' })}
+          >
+            {intl.formatMessage({ id: 'contact.title_text' })}
+          </Heading>
+          <S.StyledContactSection onSubmit={onContactSubmit}>
+            <TextInput
+              name="name"
+              label={intl.formatMessage({ id: 'contact.nameInput.label' })}
+              placeholder={intl.formatMessage({ id: 'contact.nameInput.placeholder' })}
+              value={name.value}
+              error={errors.name}
+              onBlur={() => setName((state) => ({
+                ...state,
+                wasTouched: true,
+                isFocused: false,
+              }))}
+              onFocus={() => setName((state) => ({
+                ...state,
+                isFocused: true,
+              }))}
+              onInput={(event) => setName((state) => ({
+                ...state,
+                value: event.target.value,
+              }))}
+            />
+            <TextInput
+              name="email"
+              label={intl.formatMessage({ id: 'contact.emailInput.label' })}
+              placeholder={intl.formatMessage({ id: 'contact.emailInput.placeholder' })}
+              value={email.value}
+              error={errors.email}
+              onBlur={() => setEmail((state) => ({
+                ...state,
+                wasTouched: true,
+                isFocused: false,
+              }))}
+              onFocus={() => setEmail((state) => ({
+                ...state,
+                isFocused: true,
+              }))}
+              onInput={(event) => setEmail((state) => ({
+                ...state,
+                value: event.target.value,
+              }))}
+            />
+            <TextArea
+              name="message"
+              autoComplete="off"
+              label={intl.formatMessage({ id: 'contact.messageInput.label' })}
+              placeholder={intl.formatMessage({ id: 'contact.messageInput.placeholder' })}
+              value={message.value}
+              error={errors.message}
+              resize="vertical"
+              onBlur={() => setMessage((state) => ({
+                ...state,
+                wasTouched: true,
+                isFocused: false,
+              }))}
+              onFocus={() => setMessage((state) => ({
+                ...state,
+                isFocused: true,
+              }))}
+              onInput={(event) => setMessage((state) => ({
+                ...state,
+                value: event.target.value,
+              }))}
+            />
+            <S.StyledContactSectionButtonWrapper>
+              <Button submit bold>{intl.formatMessage({ id: 'contact.button' })}</Button>
+            </S.StyledContactSectionButtonWrapper>
+          </S.StyledContactSection>
+        </S.StyledSectionWrapper>
+      </S.StyledSection>
+
+      {/* FOOTER */}
+      <Footer />
     </Layout>
   );
 };

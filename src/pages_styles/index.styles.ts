@@ -264,3 +264,14 @@ export const StyledProjects = styled.div`
   flex-direction: column;
   align-items: center;
 `;
+
+export const StyledContactSection = styled.form`
+  width: 75%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const StyledContactSectionButtonWrapper = styled.div`
+  margin: 2rem auto 0 auto;
+`;
