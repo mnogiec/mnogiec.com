@@ -98,7 +98,7 @@ export const StyledTechnology = styled.p`
   font-size: 1.7rem;
   color: white;
   text-transform: uppercase;
-  background-color: rgba(255,255,255,.3);
+  background-color: rgba(255,255,255,.2);
 
   @media ${media.tablet}{
     margin-right: 1.5rem;
