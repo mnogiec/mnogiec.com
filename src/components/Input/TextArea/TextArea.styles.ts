@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import media from 'assets/styles/media';
+
 
 export const StyledWrapper = styled.label<any>`
   display: flex;
@@ -18,7 +20,7 @@ export const StyledLabel = styled.p<{show?:boolean}>`
 
 export const StyledTextarea = styled.textarea<any>`
   width: 100%;
-  min-height: 30rem;
+  min-height: 40rem;
   padding: 1rem 0;
   color: var(--color-font);
   resize: none;
@@ -48,6 +50,10 @@ export const StyledTextarea = styled.textarea<any>`
 
   border-bottom: 0.1rem solid #373737;
   border-color: ${({ error }) => error && '#d92a2a'};
+
+  @media ${media.laptop}{
+    min-height: 30rem;
+  }
 `;
 
 export const ErrorWrapper = styled.div<{show?:boolean}>`
