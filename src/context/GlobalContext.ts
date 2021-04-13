@@ -1,4 +1,5 @@
 import theme from 'assets/styles/theme';
+import { navigate } from 'gatsby';
 import createContext from './createContext';
 
 
@@ -117,7 +118,7 @@ const initialContextCheck = (dispatch:any) => () => {
 
 
   // Handling language
-  const lastLanguage:string = localStorage.getItem('lastLanguage') || 'en';
+  // const lastLanguage:string = localStorage.getItem('lastLanguage') || 'en';
   let newLanguage:'en'|'pl'|'de' = 'en';
 
   const path:string = window.location.pathname;
@@ -132,11 +133,6 @@ const initialContextCheck = (dispatch:any) => () => {
     } else if (path.substr(0, 3) === '/de') {
       newLanguage = 'de';
     }
-  }
-
-  // TODO: Remove when added language redirections
-  if (lastLanguage !== newLanguage) {
-    console.log('🚩 GlobalContext -> initialContextCheck: newLanguage is different than lastLanguage. Language should be automatically changed to a saved one.');
   }
 
   localStorage.setItem('lastLanguage', newLanguage);
