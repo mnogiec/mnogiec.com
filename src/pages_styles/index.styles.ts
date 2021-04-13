@@ -1,7 +1,9 @@
 import styled from 'styled-components';
+
 import media from 'assets/styles/media';
 
 
+// SECTION WRAPPERS ETC.
 export const StyledHomeScroller = styled.div`
   position: absolute;
   top: -10px;
@@ -9,39 +11,12 @@ export const StyledHomeScroller = styled.div`
 `;
 
 export const StyledBubblesContainer = styled.div`
+  width: 100%;
+  height: ${({ theme }) => `calc(100vh - ${theme.const.HEADER_HEIGHT})`};
   position: absolute;
   top: ${({ theme }) => theme.const.HEADER_HEIGHT};
   left: 0;
-  width: 100%;
-  height: ${({ theme }) => `calc(100vh - ${theme.const.HEADER_HEIGHT})`};
   overflow: hidden;
-`;
-
-export const StyledHeroWrapper = styled.div`
-  width: 100%;
-  position: relative;
-  padding: 0 2rem;
-  padding-top: 2rem;
-  height: ${({ theme }) => `calc(100vh - ${theme.const.HEADER_HEIGHT})`};
-  display: grid;
-  grid-template-rows: 1fr min-content;
-
-  @media ${media.tablet}{
-    padding: 0 3.5rem;
-  }
-
-  @media ${media.laptop}{
-    padding: 0 5rem;
-  }
-
-  @media ${media.laptopL}{
-    padding: 0 6.5rem;
-  }
-
-  @media ${media.desktop}{
-    width: 155rem;
-    margin: 0 auto;
-  }
 `;
 
 export const StyledSection = styled.div`
@@ -65,6 +40,35 @@ export const StyledSectionWrapper = styled.section`
   }
 `;
 
+
+// HERO
+export const StyledHeroWrapper = styled.div`
+  width: 100%;
+  height: ${({ theme }) => `calc(100vh - ${theme.const.HEADER_HEIGHT})`};
+  padding: 0 2rem;
+  padding-top: 2rem;
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr min-content;
+
+  @media ${media.tablet}{
+    padding: 0 3.5rem;
+  }
+
+  @media ${media.laptop}{
+    padding: 0 5rem;
+  }
+
+  @media ${media.laptopL}{
+    padding: 0 6.5rem;
+  }
+
+  @media ${media.desktop}{
+    width: 155rem;
+    margin: 0 auto;
+  }
+`;
+
 export const StyledHeroMainBox = styled.div`
   display: grid;
   grid-template-columns: 1fr;
@@ -82,10 +86,10 @@ export const StyledHeroMainBox = styled.div`
 `;
 
 export const StyledHeroTitlesWrapper = styled.div`
-  grid-row: text-start/text-end;
   display: flex;
   align-items: center;
   flex-direction: column;
+  grid-row: text-start/text-end;
   font-size: 4rem;
 
   @media ${media.mobileM}{
@@ -157,9 +161,9 @@ export const StyledHeroImage = styled.img`
   @media ${media.tabletL}{
     max-width: 45rem;
     margin-right: 2rem;
-    transform: initial;
     grid-row: start/end;
     grid-column: middle/end;
+    transform: initial;
   }
 
   @media ${media.laptopL}{
@@ -197,6 +201,8 @@ export const StyledHeroSocialIcon = styled.img`
   }
 `;
 
+
+// ABOUT
 export const StyledAbout = styled.div`
   display: flex;
   flex-direction: column;
@@ -235,11 +241,13 @@ export const StyledAboutImage = styled.img`
   box-shadow: ${({ theme }) => theme.shadow};
 
   @media ${media.tablet}{
-    padding: 0;
     width: 40rem;
+    padding: 0;
   }
 `;
 
+
+// TECHNOLOGIES
 export const StyledTechnologies = styled.div`
   padding: -3rem;
   display: flex;
@@ -265,6 +273,8 @@ export const StyledTechnologies = styled.div`
   }
 `;
 
+
+// PROJECTS
 export const StyledProjects = styled.div`
   margin: -3rem 0;
   display: flex;
@@ -272,6 +282,8 @@ export const StyledProjects = styled.div`
   align-items: center;
 `;
 
+
+// CONTACT
 export const StyledContactSection = styled.form`
   width: 75%;
   margin: 0 auto;
@@ -284,14 +296,16 @@ export const StyledContactSectionButtonWrapper = styled.div`
   margin: 2rem auto 0 auto;
 `;
 
+
+// MISC
 export const StyledScrollupButton = styled.button`
   display: none;
-  background: none;
-  border: none;
-  outline: none;
   position: absolute;
   right: -5vw;
   bottom: 5vw;
+  background: none;
+  border: none;
+  outline: none;
   cursor: pointer;
 
   @media ${media.desktop}{

@@ -1,14 +1,15 @@
 import { useEffect, useContext } from 'react';
 import { navigate } from 'gatsby';
+
 import { Context as GlobalContext } from 'context/GlobalContext';
 
 
 const NotFoundPage = () => {
-  const { state } = useContext(GlobalContext);
+  const { state: { language } } = useContext(GlobalContext);
 
 
   useEffect(():any => {
-    switch (state.language) {
+    switch (language) {
       case 'en': {
         return navigate('/');
       }

@@ -10,13 +10,11 @@ export const StyledNotificationWrapper = styled.div<{show:boolean}>`
   display: flex;
   justify-content: center;
   transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
-  opacity: 0;
-  visibility: hidden;
+  opacity: ${({ show }) => (show ? '1' : '0')};
+  visibility: ${({ show }) => (show ? 'visible' : 'hidden')};
+  transform: ${({ show }) => show && 'translateY(0)'};
   z-index: 10;
 
-  opacity: ${({ show }) => show && '1'};
-  visibility: ${({ show }) => show && 'visible'};
-  transform: ${({ show }) => show && 'translateY(0)'};
 
   @media ${media.tabletL}{
     padding: 0 3.5rem;
@@ -43,10 +41,10 @@ export const StyledNotification = styled.div`
   width: 90vw;
   max-width: 50rem;
   padding: 1.5rem;
-  transform: translateY(-2rem);
   display: flex;
   flex-direction: column;
   background-color: var(--color-headerBackground);
+  transform: translateY(-2rem);
   border-radius: 2rem;
   box-shadow: ${({ theme }) => theme.shadow};
 

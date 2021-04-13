@@ -18,9 +18,10 @@ const Button:React.FC<T.Props> = ({
   }
 
   if (link) {
+    // Fix error with NavLink
     const newProps:any = { ...props };
     for (const [key, value] of Object.entries(newProps)) {
-      newProps[`$${key}`] = value;
+      newProps[`$${key}`] = value; // $$prop avoids error
       delete newProps[key];
     }
 

@@ -5,11 +5,11 @@ import media from 'assets/styles/media';
 export const StylesFooter = styled.footer`
   width: 100%;
   padding: 2rem 0;
-  background-color: var(--color-primary);
-  color: var(--color-background);
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: var(--color-primary);
+  color: var(--color-background);
 
   @media ${media.tablet}{
     flex-direction: row;
@@ -21,11 +21,11 @@ export const StyledTextWrapper = styled.div<{colorMode:'light'|'dark'}>`
   letter-spacing: .25rem;
 
   @media ${media.tablet}{
+    margin-right: 2.5rem;
+    padding-right: 2.5rem;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    margin-right: 2.5rem;
-    padding-right: 2.5rem;
     border-right: ${({ colorMode }) => (colorMode === 'light' ? '.2rem solid #5C5EA7' : '.2rem solid #9C8F72')};
   }
 `;

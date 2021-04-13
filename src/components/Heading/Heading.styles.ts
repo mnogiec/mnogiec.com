@@ -43,13 +43,12 @@ export const StyledTextPart = styled.div`
   
   @media ${media.laptop}{
     width: 45rem;
-    justify-content: center;
     line-height: 4rem;
   }
 `;
 
 export const StyledText = styled.p`
-  color: var(--color-subHeading)
+  color: var(--color-subHeading);
 `;
 
 export const StyledScroller = styled.div`

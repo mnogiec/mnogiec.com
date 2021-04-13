@@ -4,3 +4,9 @@ export type Props = {
   header?: boolean,
   lang: string,
 }
+
+export type CSSProps = {
+  header?: boolean,
+  sideMenu?: boolean,
+  showSideMenu?: boolean
+}

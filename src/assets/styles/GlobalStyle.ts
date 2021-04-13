@@ -5,6 +5,7 @@ import media from 'assets/styles/media';
 
 
 export default createGlobalStyle`
+  /* Reset */
   *,
   *::before,
   *::after {
@@ -18,6 +19,7 @@ export default createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
   }
 
+  /* CSS variables */
   :root{
     --color-primary: ${theme.color.primary.light};
     --color-background: ${theme.color.background.light};
@@ -30,6 +32,7 @@ export default createGlobalStyle`
     --color-scrollBarThumb: ${theme.color.scrollbar.thumb.light};
     --color-scrollBarThumbHover: ${theme.color.scrollbar.thumbHover.light};
   }
+
 
   html{
     font-size: 50%;
@@ -59,6 +62,7 @@ export default createGlobalStyle`
     background-color: transparent;
   }
 
+  /* Scrollbar */
   ::-webkit-scrollbar{
     width: 1rem;
   }

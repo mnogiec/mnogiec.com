@@ -15,6 +15,7 @@ import logoDarkSvg from 'assets/images/header/logo_dark.svg';
 import logoLightSvg from 'assets/images/header/logo_light.svg';
 import textDarkSvg from 'assets/images/header/text_dark.svg';
 import textLightSvg from 'assets/images/header/text_light.svg';
+
 import * as S from './Header.styles';
 
 
@@ -26,18 +27,21 @@ const Header:React.FC = () => {
   const [isSideMenuOpen, setIsSidemenuOpen] = useState(false);
   const [scroll, setScroll] = useState(0);
 
+
   // Define current flag icon
-  let languageIcon = englishSvg;
+  let languageIcon:string = englishSvg;
   if (state.language === 'de') {
     languageIcon = germanSvg;
   } else if (state.language === 'pl') {
     languageIcon = polishSvg;
   }
 
+
   // Set scroll listener
   document.addEventListener('scroll', () => {
     setScroll(window.scrollY);
   });
+
 
   // Function to handle body-click menu closing
   const useOutsideAlerter = (ref:any) => {

@@ -17,23 +17,19 @@ import favicon96x96 from 'assets/images/favicons/favicon-96x96.png';
 import favicon128 from 'assets/images/favicons/favicon-128.png';
 import favicon196x196 from 'assets/images/favicons/favicon-196x196.png';
 
-import faviconIco from 'assets/images/favicons/favicon.ico';
-
 import msTile70x70 from 'assets/images/favicons/mstile-70x70.png';
 import msTile144x144 from 'assets/images/favicons/mstile-144x144.png';
 import msTile150x150 from 'assets/images/favicons/mstile-150x150.png';
 import msTile310x150 from 'assets/images/favicons/mstile-310x150.png';
 import msTile310x310 from 'assets/images/favicons/mstile-310x310.png';
 
-
-type Props = {
-  pageTitle?: string
-  lang: string
-}
+import * as T from './Helmet.types';
 
 
-const Helmet:React.FC<Props> = ({ pageTitle, lang }) => {
-  let canonicalLang:string = '';
+const Helmet:React.FC<T.Props> = ({ pageTitle, lang }) => {
+  // Alternate links are always the same,
+  // but canonical needs to be changed depending on page language
+  let canonicalLang:''|'/de'|'/pl' = '';
   if (lang === 'de') {
     canonicalLang = '/de';
   } else if (lang === 'pl') {

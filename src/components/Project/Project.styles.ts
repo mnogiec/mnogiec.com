@@ -8,13 +8,13 @@ export const StyledProject = styled.div<{bgColor: string}>`
   margin: 3rem 0;
   padding: 3rem 2rem;
   position: relative;
-  background-color: ${({ bgColor }) => bgColor};
-  line-height: 3rem;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(4, max-content);
-  overflow: hidden;
+  background-color: ${({ bgColor }) => bgColor};
+  line-height: 3rem;
   box-shadow: ${({ theme }) => theme.shadow};
+  overflow: hidden;
 
   @media ${media.tablet}{
     grid-template-columns: [start] 1fr [middle] 1fr [end];
@@ -58,11 +58,11 @@ export const StyledProjectImage = styled.img<{type?:string}>`
   padding: ${({ type }) => type === 'unseal' && '0 8rem'};
 
   @media ${media.tablet}{
+    height: 90%;
+    margin: -4rem 0;
     grid-row: start/end;
     grid-column: middle/end;
-    margin: -4rem 0;
     transform: rotate(2deg);
-    height: 90%;
     object-fit: contain;
 
     padding: ${({ type }) => type === 'unseal' && '0 8rem'};
@@ -91,14 +91,14 @@ export const StyledTechnologiesWrapper = styled.div`
 
 export const StyledTechnology = styled.p`
   display: inline-block;
-  border-radius: 2rem;
   padding: .5rem 1.5rem;
   margin: 1rem 0;
+  background-color: rgba(255,255,255,.2);
   font-weight: ${({ theme }) => theme.font.weight.bold};
   font-size: 1.7rem;
   color: white;
+  border-radius: 2rem;
   text-transform: uppercase;
-  background-color: rgba(255,255,255,.2);
 
   @media ${media.tablet}{
     margin-right: 1.5rem;

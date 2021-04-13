@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 
+
 export const StyledSubmit = styled.input<any>`
   padding: 1rem 2rem;
   margin: ${({ margin }) => (margin || '1rem 0')};

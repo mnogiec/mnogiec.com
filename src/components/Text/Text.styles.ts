@@ -24,9 +24,7 @@ export const StyledParagraph = styled.p<T.Props>`
 
   color: inherit;
   color: ${({ color }) => color && color};
-  
   color: ${({ primaryColor }) => primaryColor && 'var(--color-primary)'};
-
   color: ${({ error }) => error && 'rgb(204, 41, 34)'};
 
   font-weight: ${({ light, theme }) => light && theme.font.weight.light};

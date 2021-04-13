@@ -49,34 +49,50 @@ import scrollupDarkIcon from 'assets/images/contact/scrollup_dark.svg';
 import scrollupLightIcon from 'assets/images/contact/scrollup_light.svg';
 
 
-const IndexPage = () => {
+type ContactStateType = {
+  value: string,
+  wasTouched: boolean,
+  isFocused: boolean,
+}
+
+type ContactErrorType = {
+  name: undefined | string,
+  email: undefined | string,
+  message: undefined | string,
+}
+
+
+const IndexPage:React.FC = () => {
   const intl = useIntl();
   const { state } = useContext(GlobalContext);
 
 
-  const [name, setName] = useState({
+  // States used to handle contact form
+  const [name, setName] = useState<ContactStateType>({
     value: '',
     wasTouched: false,
     isFocused: false,
   });
-  const [email, setEmail] = useState({
+  const [email, setEmail] = useState<ContactStateType>({
     value: '',
     wasTouched: false,
     isFocused: false,
   });
-  const [message, setMessage] = useState({
+  const [message, setMessage] = useState<ContactStateType>({
     value: '',
     wasTouched: false,
     isFocused: false,
   });
 
-  const [errors, setErrors] = useState<any>({
+  // State to handle errors validation passed to Input components
+  const [errors, setErrors] = useState<ContactErrorType>({
     name: undefined,
     email: undefined,
     message: undefined,
   });
 
 
+  // Function to validate contact form inputs IRL
   const validateContactForm = () => {
     const newErrors:any = {
       name: undefined,
@@ -84,7 +100,7 @@ const IndexPage = () => {
       message: undefined,
     };
 
-    // NAME:
+    // ?NAME:
     if (name.wasTouched) {
       if (name.value.length === 0 && name.wasTouched) {
         // required
@@ -98,8 +114,8 @@ const IndexPage = () => {
       }
     }
 
-    const mailRegExp = /^\S+@\S+\.\S+$/;
-    // EMAIL:
+    const mailRegExp:RegExp = /^\S+@\S+\.\S+$/;
+    // ?EMAIL:
     if (email.wasTouched) {
       if (email.value.length === 0 && email.wasTouched) {
         // required
@@ -115,7 +131,7 @@ const IndexPage = () => {
       }
     }
 
-    // MESSAGE:
+    // ?MESSAGE:
     if (message.wasTouched) {
       if (message.value.length === 0) {
         // required
@@ -129,9 +145,11 @@ const IndexPage = () => {
       }
     }
 
+
     setErrors(newErrors);
   };
 
+  // Function to handle contact form submit event
   const onContactSubmit:any = (event:Event) => {
     event.preventDefault();
 
@@ -150,12 +168,12 @@ const IndexPage = () => {
 
     if ((!errors.name && !errors.email && !errors.message)
     && name.wasTouched && email.wasTouched && message.wasTouched) {
-      // SUBMIT
+      // TODO: SUBMIT
     }
   };
 
 
-  // Validation
+  // Validation on states change
   useEffect(validateContactForm, [name, email, message]);
 
 

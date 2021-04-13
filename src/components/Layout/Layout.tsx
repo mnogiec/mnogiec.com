@@ -3,8 +3,8 @@ import { ThemeProvider } from 'styled-components';
 
 import GlobalStyle from 'assets/styles/GlobalStyle';
 import Helmet from 'components/Helmet/Helmet';
-import { Context as GlobalContext } from 'context/GlobalContext';
 import Header from 'components/Header/Header';
+import { Context as GlobalContext } from 'context/GlobalContext';
 import theme from 'assets/styles/theme';
 
 import * as S from './Layout.styles';
@@ -17,7 +17,7 @@ const Layout:React.FC<T.Props> = ({
   const { initialContextCheck } = useContext(GlobalContext);
 
 
-  // Check context content on url change (or 1st page load-up)
+  // Check context content on url change (including 1st page load-up)
   useEffect(() => {
     initialContextCheck();
   }, []);

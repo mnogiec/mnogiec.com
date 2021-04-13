@@ -1,16 +1,20 @@
 import theme from 'assets/styles/theme';
-import { navigate } from 'gatsby';
 import createContext from './createContext';
 
 
 type GlobalReducerType={
-  theme: string,
-  language: string,
+  theme: 'light'|'dark',
+  language: 'en'|'de'|'de',
   hadDisplayedCookies: boolean
 }
 
+type ActionReducerType = {
+  type: string,
+  payload: any
+}
 
-const globalReducer = (state:GlobalReducerType, action:any) => {
+
+const globalReducer = (state:GlobalReducerType, action:ActionReducerType) => {
   switch (action.type) {
     case 'setTheme': {
       return ({
@@ -47,7 +51,7 @@ const globalReducer = (state:GlobalReducerType, action:any) => {
 };
 
 
-// Change CSS variables
+// Change DOM CSS variables via JS
 const changeCSSVariables = (newTheme:'light'|'dark') => {
   const root = document.documentElement.style;
 
@@ -92,7 +96,7 @@ const changeTheme = (dispatch:any) => () => {
 };
 
 // Set current stored language
-const setLanguage = (dispatch:any) => (newLanguage:'en'|'pl'|'de') => {
+const setLanguage = (dispatch:any) => (newLanguage:'en'|'de'|'pl') => {
   localStorage.setItem('lastLanguage', newLanguage);
   dispatch({ type: 'setLanguage', payload: { newLanguage } });
 };
@@ -103,7 +107,7 @@ const acceptCookies = (dispatch:any) => () => {
   dispatch({ type: 'acceptCookies' });
 };
 
-// Check if there is a theme set in localStorage
+// Function that runs on every page load-up
 const initialContextCheck = (dispatch:any) => () => {
   // Handling last theme
   const lastTheme:string = localStorage.getItem('lastTheme') || 'light';
@@ -117,7 +121,7 @@ const initialContextCheck = (dispatch:any) => () => {
   }
 
 
-  // Handling language
+  // Handling language (partly disabled)
   // const lastLanguage:string = localStorage.getItem('lastLanguage') || 'en';
   let newLanguage:'en'|'pl'|'de' = 'en';
 
