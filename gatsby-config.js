@@ -1,5 +1,6 @@
 const path = require('path');
 
+
 module.exports = {
   siteMetadata: {
     title: 'MNogiec.com',
@@ -46,9 +47,9 @@ module.exports = {
         name: 'MNogiec.com',
         short_name: 'MNogiec',
         start_url: '/',
-        background_color: '#3A3D9B',
+        background_color: '#FFFFFF',
         theme_color: '#3A3D9B',
-        icon: './src/assets/images/icon.png',
+        icon: './src/assets/images/favicons/icon.png',
       },
     },
   ],
