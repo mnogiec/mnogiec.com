@@ -32,7 +32,16 @@ type Props = {
 }
 
 
-const Helmet:React.FC<Props> = ({ pageTitle, lang }) => (
+const Helmet:React.FC<Props> = ({ pageTitle, lang }) => {
+  let canonicalLang:string = '';
+  if (lang === 'de') {
+    canonicalLang = '/de';
+  } else if (lang === 'pl') {
+    canonicalLang = '/pl';
+  }
+
+
+  return (
     <ReactHelmet>
       {/* HTML tag */}
       <html lang={lang} />
@@ -67,37 +76,10 @@ const Helmet:React.FC<Props> = ({ pageTitle, lang }) => (
       <meta name="google" content="notranslate" />
 
       {/* Canonical & Alternate */}
-      {
-        lang === 'en' && (
-          <>
-            <link rel="canonical" href="https://mnogiec.com" />
-            <link rel="alternate" href="https://mnogiec.com" hrefLang="en" />
-            <link rel="alternate" href="https://mnogiec.com/de" hrefLang="de" />
-            <link rel="alternate" href="https://mnogiec.com/pl" hrefLang="pl" />
-          </>
-        )
-      }
-      {
-        lang === 'de' && (
-          <>
-            <link rel="canonical" href="https://mnogiec.com/de" />
-            <link rel="alternate" href="https://mnogiec.com" hrefLang="en" />
-            <link rel="alternate" href="https://mnogiec.com/de" hrefLang="de" />
-            <link rel="alternate" href="https://mnogiec.com/pl" hrefLang="pl" />
-          </>
-        )
-      }
-      {
-        lang === 'pl' && (
-          <>
-            <link rel="canonical" href="https://mnogiec.com/pl" />
-            <link rel="alternate" href="https://mnogiec.com" hrefLang="en" />
-            <link rel="alternate" href="https://mnogiec.com/de" hrefLang="de" />
-            <link rel="alternate" href="https://mnogiec.com/pl" hrefLang="pl" />
-          </>
-        )
-      }
-
+      <link rel="canonical" href={`https://mnogiec.com${canonicalLang}`} />
+      <link rel="alternate" href="https://mnogiec.com" hrefLang="en" />
+      <link rel="alternate" href="https://mnogiec.com/de" hrefLang="de" />
+      <link rel="alternate" href="https://mnogiec.com/pl" hrefLang="pl" />
 
       {/* Apple info */}
       <meta name="apple-mobile-web-app-title" content="MNogiec.com" />
@@ -130,6 +112,7 @@ const Helmet:React.FC<Props> = ({ pageTitle, lang }) => (
       <link rel="icon" type="image/png" href={favicon128} sizes="128x128" />
     </ReactHelmet>
   );
+};
 
 
 export default Helmet;
