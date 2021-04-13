@@ -8,7 +8,7 @@ import * as T from './TextArea.types';
 
 const TextInput:React.FC<T.Props> = (props) => {
   const {
-    reff, error, label, value,
+    error, label, value,
   }:T.Props = props;
 
   let errorMessage:string = '';

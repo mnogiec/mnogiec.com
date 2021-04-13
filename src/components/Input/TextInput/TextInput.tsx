@@ -8,7 +8,7 @@ import * as T from './TextInput.types';
 
 const TextInput:React.FC<T.Props> = (props) => {
   const {
-    password, reff, error, label, value,
+    error, label, value,
   }:T.Props = props;
 
   let errorMessage:string = '';
@@ -44,19 +44,6 @@ const TextInput:React.FC<T.Props> = (props) => {
         break;
       }
     }
-  }
-
-  if (password) {
-    return (
-      <>
-        <S.StyledInput {...props} type="password" ref={reff} />
-        {error && (
-          <S.ErrorWrapper>
-            <Text error size="1.4rem">{errorMessage}</Text>
-          </S.ErrorWrapper>
-        )}
-      </>
-    );
   }
 
 
