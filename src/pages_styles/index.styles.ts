@@ -10,15 +10,6 @@ export const StyledHomeScroller = styled.div`
   left: 0;
 `;
 
-export const StyledBubblesContainer = styled.div`
-  width: 100%;
-  height: ${({ theme }) => `calc(100vh - ${theme.const.HEADER_HEIGHT})`};
-  position: absolute;
-  top: ${({ theme }) => theme.const.HEADER_HEIGHT};
-  left: 0;
-  overflow: hidden;
-`;
-
 export const StyledSection = styled.div`
   width: 100%;
   margin: 0 auto;
@@ -150,20 +141,30 @@ export const StyledHeroButtonsWrapper = styled.div`
   }
 `;
 
-export const StyledHeroImage = styled.img`
+export const StyledHeroImage = styled.img<{inView:boolean}>`
   display: block;
   width: 75vw;
   max-width: 50rem;
   margin: 0 auto;
   grid-row: image-start/image-end;
-  transform: rotate(-3deg);
+
+  transform: rotate(-3deg) translateY(3rem);
+  transform: ${({ inView }) => inView && 'rotate(-3deg) translate(0)'};
+
+  opacity: 0;
+  opacity: ${({ inView }) => inView && '1'};
+
+  transition: transform 1s, opacity 1s;
+  transition-delay: 1.3s;
   
   @media ${media.tabletL}{
     max-width: 45rem;
     margin-right: 2rem;
     grid-row: start/end;
     grid-column: middle/end;
-    transform: initial;
+    transform: translateY(3rem);
+    transform: ${({ inView }) => inView && 'translate(0)'};
+    transition-delay: 1.8s;
   }
 
   @media ${media.laptopL}{
