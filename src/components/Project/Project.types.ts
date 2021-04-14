@@ -4,5 +4,6 @@ export type Props = {
   technologies: string[],
   img: string,
   bgColor: string,
-  type?: string
+  type?: string,
+  link: string
 }

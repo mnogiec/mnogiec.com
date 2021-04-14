@@ -7,9 +7,9 @@ import * as S from './Project.styles';
 
 
 const Project:React.FC<T.Props> = ({
- children, name, technologies, img, bgColor, type,
+ children, name, technologies, img, bgColor, type, link,
 }) => (
-  <S.StyledProject bgColor={bgColor}>
+  <S.StyledProject bgColor={bgColor} target="_blank" href={link} rel="norefferer">
     <S.StyledHeading>{name}</S.StyledHeading>
     <S.StyledTextWrapper>
       <Text size="s" color="white">{children}</Text>
