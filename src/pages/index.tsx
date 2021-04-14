@@ -325,7 +325,7 @@ const IndexPage:React.FC = () => {
               <Project
                 name={intl.formatMessage({ id: 'projects.unseal.title' })}
                 bgColor={theme.color.projects.unseal}
-                technologies={['React', 'Typescript', 'Node']}
+                technologies={['React Native', 'Typescript', 'Node']}
                 img={unsealImage}
                 type="unseal"
                 link="https://unseal.herokuapp.com/"
