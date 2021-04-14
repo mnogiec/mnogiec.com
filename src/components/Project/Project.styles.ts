@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import media from 'assets/styles/media';
 
 
-export const StyledProject = styled.div<{bgColor: string}>`
+export const StyledProject = styled.a<{bgColor: string}>`
+  display: block;
   width: 100%;
   margin: 3rem 0;
   padding: 3rem 2rem;
@@ -14,7 +15,12 @@ export const StyledProject = styled.div<{bgColor: string}>`
   background-color: ${({ bgColor }) => bgColor};
   line-height: 3rem;
   box-shadow: ${({ theme }) => theme.shadow};
+  transition: .3s;
   overflow: hidden;
+
+  &:hover{
+    transform: scale(1.03);
+  }
 
   @media ${media.tablet}{
     grid-template-columns: [start] 1fr [middle] 1fr [end];
