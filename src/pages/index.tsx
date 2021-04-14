@@ -182,8 +182,10 @@ const IndexPage:React.FC = () => {
 
   return (
     <Layout
-      pageTitle={intl.formatMessage({ id: 'pages.landing.title' })}
       lang={state.language}
+      pageTitle={intl.formatMessage({ id: 'seo.landing.title' })}
+      pageDescription={intl.formatMessage({ id: 'seo.landing.description' })}
+      pageKeywords={intl.formatMessage({ id: 'seo.landing.keywords' })}
       header
     >
       <CookiesNotification show={!state.hadDisplayedCookies} />
@@ -314,6 +316,7 @@ const IndexPage:React.FC = () => {
                 bgColor={theme.color.projects.matematykaDlaCiebie}
                 technologies={['React', 'Node']}
                 img={matematykaDlaCiebieImage}
+                link="https://matematykadlaciebie.com.pl/"
               >
                 {intl.formatMessage({ id: 'projects.matematykaDlaCiebie.text' })}
               </Project>
@@ -325,6 +328,7 @@ const IndexPage:React.FC = () => {
                 technologies={['React', 'Typescript', 'Node']}
                 img={unsealImage}
                 type="unseal"
+                link="https://unseal.herokuapp.com/"
               >
                 {intl.formatMessage({ id: 'projects.unseal.text' })}
               </Project>
@@ -335,6 +339,7 @@ const IndexPage:React.FC = () => {
                 bgColor={theme.color.projects.restauracjaStarka}
                 technologies={['Wordpress']}
                 img={restauracjaStarkaImage}
+                link="https://www.starka-restauracja.pl/"
               >
                 {intl.formatMessage({ id: 'projects.restauracjaStarka.text' })}
               </Project>
@@ -345,6 +350,7 @@ const IndexPage:React.FC = () => {
                 bgColor={theme.color.projects.accademiaEnPlato}
                 technologies={['Html', 'Sass', 'Gulp']}
                 img={accademiaEnPlatoImage}
+                link="https://www.enplato.pl/"
               >
                 {intl.formatMessage({ id: 'projects.accademiaEnPlato.text' })}
               </Project>
