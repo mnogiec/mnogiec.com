@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactHelmet from 'react-helmet';
 
-
 import appleTouchIcon57x57 from 'assets/images/favicons/apple-touch-icon-57x57.png';
 import appleTouchIcon60x60 from 'assets/images/favicons/apple-touch-icon-60x60.png';
 import appleTouchIcon72x72 from 'assets/images/favicons/apple-touch-icon-72x72.png';
@@ -23,10 +22,14 @@ import msTile150x150 from 'assets/images/favicons/mstile-150x150.png';
 import msTile310x150 from 'assets/images/favicons/mstile-310x150.png';
 import msTile310x310 from 'assets/images/favicons/mstile-310x310.png';
 
+import ogImage from 'assets/images/og/og-image.png';
+
 import * as T from './Helmet.types';
 
 
-const Helmet:React.FC<T.Props> = ({ pageTitle, lang }) => {
+const Helmet:React.FC<T.Props> = ({
+ lang, pageTitle, pageDescription, pageKeywords,
+}) => {
   // Alternate links are always the same,
   // but canonical needs to be changed depending on page language
   let canonicalLang:''|'/de'|'/pl' = '';
@@ -51,8 +54,8 @@ const Helmet:React.FC<T.Props> = ({ pageTitle, lang }) => {
       {/* Metas */}
       <meta name="author" content="MNogiec.com" />
       <meta name="copyright" content="MNogiec" />
-      <meta name="description" content="TO DO" />
-      <meta name="keywords" content="TO, DO" />
+      <meta name="description" content={pageDescription} />
+      <meta name="keywords" content={pageKeywords} />
       <meta name="generator" content="Visual Studio Code" />
       <meta name="robots" content="index,follow" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -61,11 +64,11 @@ const Helmet:React.FC<T.Props> = ({ pageTitle, lang }) => {
       <meta httpEquiv="X-UA-Compatible" content="IE=edge chrome=1" />
 
       {/* OG */}
-      <meta property="og:title" content="MNogiec.com - Portfolio" />
+      <meta property="og:title" content={pageTitle} />
       <meta property="og:site_name" content="MNogiec.com" />
-      {/* <meta property="og:url" content={URL} /> */}
-      {/* <meta property="og:image" content={ogImage} /> */}
-      <meta property="og:description" content="TO DO" />
+      <meta property="og:url" content="https://mnogiec.com" />
+      <meta property="og:image" content={ogImage} />
+      <meta property="og:description" content={pageDescription} />
       <meta property="og:type" content="website" />
 
       {/* Translator */}
