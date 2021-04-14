@@ -4,8 +4,8 @@ const path = require('path');
 module.exports = {
   siteMetadata: {
     title: 'MNogiec.com',
-    description: 'Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.',
-    author: 'MNogiec.com',
+    description: 'As an ambitious and dedicated web developer, I would love to cooperate with you! Please feel free to visit this portfolio and check my work.',
+    author: 'MNogiec',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -50,6 +50,15 @@ module.exports = {
         background_color: '#FFFFFF',
         theme_color: '#3A3D9B',
         icon: './src/assets/images/favicons/icon.png',
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: 'UA-136352136-1',
+        head: false,
+        defer: false,
+        cookieDomain: 'mnogiec.com',
       },
     },
   ],
