@@ -286,11 +286,19 @@ export const StyledProjects = styled.div`
 
 // CONTACT
 export const StyledContactSection = styled.form`
-  width: 75%;
+  width: 90%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   position: relative;
+
+  @media ${media.tablet}{
+    width: 80%;
+  }
+
+  @media ${media.laptop}{
+    width: 75%;
+  }
 `;
 
 export const StyledContactSectionButtonWrapper = styled.div`
