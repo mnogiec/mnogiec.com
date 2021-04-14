@@ -12,7 +12,7 @@ import * as T from './Layout.types';
 
 
 const Layout:React.FC<T.Props> = ({
- children, pageTitle, header, lang,
+ children, header, lang, pageTitle, pageDescription, pageKeywords,
 }) => {
   const { initialContextCheck } = useContext(GlobalContext);
 
@@ -25,7 +25,12 @@ const Layout:React.FC<T.Props> = ({
 
   return (
     <>
-      <Helmet pageTitle={pageTitle} lang={lang} />
+      <Helmet
+        lang={lang}
+        pageTitle={pageTitle}
+        pageDescription={pageDescription}
+        pageKeywords={pageKeywords}
+      />
       <GlobalStyle />
       <ThemeProvider theme={theme}>
         {header && <Header />}
