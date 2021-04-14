@@ -1,4 +1,6 @@
 export type Props = {
-  pageTitle?: string,
-  lang: string
+  lang: string,
+  pageTitle: string,
+  pageDescription: string,
+  pageKeywords: string,
 }
