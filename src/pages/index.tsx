@@ -77,8 +77,16 @@ type RequestErrorType = {
 
 const IndexPage:React.FC = () => {
   const intl = useIntl();
-  const { state } = useContext(GlobalContext);
+  let { state } = useContext(GlobalContext);
   const reRef = useRef<ReCAPTCHA>();
+
+  if (typeof window === 'undefined') {
+    state = {
+      language: 'en',
+      theme: 'light',
+      hadDisplayedCookies: false,
+    };
+  }
 
   const [showHeroImage, setShowHeroImage] = useState(false);
 

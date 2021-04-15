@@ -5,11 +5,19 @@ import { Context as GlobalContext } from 'context/GlobalContext';
 
 
 const NotFoundPage = () => {
-  const { state: { language } } = useContext(GlobalContext);
+  let { state } = useContext(GlobalContext);
+
+  if (typeof window === 'undefined') {
+    state = {
+      language: 'en',
+      theme: 'light',
+      hadDisplayedCookies: false,
+    };
+  }
 
 
   useEffect(():any => {
-    switch (language) {
+    switch (state.language) {
       case 'en': {
         return navigate('/');
       }

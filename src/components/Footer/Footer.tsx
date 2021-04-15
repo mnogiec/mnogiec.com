@@ -14,24 +14,32 @@ import * as S from './Footer.styles';
 
 
 const Footer:React.FC = () => {
-  const { state: { theme } } = useContext(GlobalContext);
+  let { state } = useContext(GlobalContext);
+
+  if (typeof window === 'undefined') {
+    state = {
+      language: 'en',
+      theme: 'light',
+      hadDisplayedCookies: false,
+    };
+  }
 
 
   return (
     <S.StylesFooter>
-      <S.StyledTextWrapper colorMode={theme}>
+      <S.StyledTextWrapper colorMode={state.theme}>
         <Text bold inline>MNogiec.com</Text>
         <Text bold inline> &copy; {new Date().getFullYear()}</Text>
       </S.StyledTextWrapper>
       <S.StyledIconsWrapper>
         <S.StyledLink target="_blank" href="https://www.linkedin.com/in/nogiecmikolaj/" rel="noreferrer">
-          <S.StyledIcon src={theme === 'light' ? linkedinIconLight : linkedinIconDark} alt="LinkedIn" />
+          <S.StyledIcon src={state.theme === 'light' ? linkedinIconLight : linkedinIconDark} alt="LinkedIn" />
         </S.StyledLink>
         <S.StyledLink target="_blank" href="https://github.com/mnogiec" rel="noreferrer">
-          <S.StyledIcon src={theme === 'light' ? githubIconLight : githubIconDark} alt="Github" />
+          <S.StyledIcon src={state.theme === 'light' ? githubIconLight : githubIconDark} alt="Github" />
         </S.StyledLink>
         <S.StyledLink target="_blank" href="mailto:nogiecmikolaj@gmail.com">
-          <S.StyledIcon src={theme === 'light' ? mailIconLight : mailIconDark} alt="Mail" />
+          <S.StyledIcon src={state.theme === 'light' ? mailIconLight : mailIconDark} alt="Mail" />
         </S.StyledLink>
       </S.StyledIconsWrapper>
     </S.StylesFooter>

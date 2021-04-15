@@ -21,7 +21,16 @@ import * as S from './Header.styles';
 
 const Header:React.FC = () => {
   const intl = useIntl();
-  const { state, changeTheme } = useContext(GlobalContext);
+  let { state, changeTheme } = useContext(GlobalContext);
+  if (typeof window === 'undefined') {
+    state = {
+      language: 'en',
+      theme: 'light',
+      hadDisplayedCookies: false,
+    };
+    changeTheme = () => null;
+  }
+
 
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
   const [isSideMenuOpen, setIsSidemenuOpen] = useState(false);
@@ -38,9 +47,11 @@ const Header:React.FC = () => {
 
 
   // Set scroll listener
-  document.addEventListener('scroll', () => {
-    setScroll(window.scrollY);
-  });
+  if (typeof window !== 'undefined') {
+    document.addEventListener('scroll', () => {
+      setScroll(window.scrollY);
+    });
+  }
 
 
   // Function to handle body-click menu closing

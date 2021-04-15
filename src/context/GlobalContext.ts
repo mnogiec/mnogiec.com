@@ -120,7 +120,6 @@ const initialContextCheck = (dispatch:any) => () => {
     dispatch({ type: 'setTheme', payload: { newTheme: 'dark' } });
   }
 
-
   // Handling language (partly disabled)
   // const lastLanguage:string = localStorage.getItem('lastLanguage') || 'en';
   let newLanguage:'en'|'pl'|'de' = 'en';
@@ -141,14 +140,22 @@ const initialContextCheck = (dispatch:any) => () => {
 
   localStorage.setItem('lastLanguage', newLanguage);
   dispatch({ type: 'setLanguage', payload: { newLanguage } });
+
+
+  // Handling cookies
+  // @ts-ignore
+  const hadDisplayedCookies:boolean = JSON.parse(localStorage.getItem('hadDisplayedCookies')) || false;
+  if (hadDisplayedCookies) {
+    dispatch({ type: 'acceptCookies' });
+  }
 };
 
 
 const initialState = {
-  theme: localStorage.getItem('lastTheme') || 'light',
-  language: localStorage.getItem('lastLanguage') || 'en',
+  theme: 'light',
+  language: 'en',
   // @ts-ignore
-  hadDisplayedCookies: JSON.parse(localStorage.getItem('hadDisplayedCookies')) || false,
+  hadDisplayedCookies: false,
 };
 
 

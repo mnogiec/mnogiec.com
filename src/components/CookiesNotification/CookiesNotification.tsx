@@ -14,7 +14,11 @@ import * as T from './CookiesNotification.types';
 
 const CookiesNotification:React.FC<T.Props> = ({ show }) => {
   const intl = useIntl();
-  const { acceptCookies } = useContext(GlobalContext);
+  let { acceptCookies } = useContext(GlobalContext);
+
+  if (typeof window === 'undefined') {
+    acceptCookies = () => null;
+  }
 
 
   return (
