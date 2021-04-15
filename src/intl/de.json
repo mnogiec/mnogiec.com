@@ -1,17 +1,19 @@
 {
   "aria":{
     "hamburgerMenu": {
-      "open": "",
-      "close": ""
+      "open": "Menu öffnen",
+      "close": "Menu schließen"
     },
-    "languagesButton": "",
-    "themeButton": "",
-    "scrollupButton": "",
-    "logo": ""
+    "languagesButton": "Sprache ändern",
+    "themeButton": "Motiv ändern",
+    "scrollupButton": "Zum Anfang",
+    "logo": "Logo, zum Anfang"
   },
-  "pages":{
+  "seo":{
     "landing":{
-      "title": "MNogiec | React Entwickler"
+      "title": "MNogiec | React-Entwickler",
+      "description": "Hallo! Ich heiße Nikolas und ich bin Web Entwickler seit mehreren Jahren. Hier gibt es mein Portfolio mit meiner Projekten und Fähigkeiten.",
+      "keywords": "react entwickler, portfolio, deutsch, englisch, arbeit suchen, arbeit, job, lebenslauf, cv, polnisch, react, typescript, redux, gatsby, react native, javascript, html, css, sass, node.js, mongodb, mysql, python, git"
     }
   },
   "header":{
@@ -26,65 +28,70 @@
   },
   "hero":{
     "title": "Ich bin Nikolas",
-    "subtitle": "React Entwickler",
+    "subtitle": "React-Entwickler",
     "projectsButton": "Meine Projekte",
     "contactButton": "Kontakt mit mir"
   },
   "cookie":{
-    "text_start": "This website uses ",
-    "text_cookies": "cookies",
+    "text_start": "Diese Website benutzen ",
+    "text_cookies": "Cookies",
     "text_link": "https://de.wikipedia.org/wiki/HTTP-Cookie",
-    "text_end": " to ensure you are getting the best possible experience.",
-    "acceptButton": "Ich stimme zu"
+    "text_end": " zu die besten Qualität für der User garantiren.",
+    "acceptButton": "Zustimmen"
   },
   "about":{
     "title": "Über mich",
-    "subtitle": "Wer bin",
-    "title_text": "",
-    "text": ""
+    "subtitle": "Wer bin ich?",
+    "title_text": "Wenn Sie vor der Zusammenarbeit etwas über mich wissen möchten, lesen Sie bitte die folgende Zusammenfassung.",
+    "text": "Hallo! Ich heiße Nikolas und ich bin ein ehrgeiziger Webentwickler aus Polen. Ich erinnere mich mit Freude auf den ersten Moment, als ich Kontakt mit dem Code hatte. Wenn ich diese kurze Datei bearbeite, die für die Serverkonfiguration im Spiel verantwortlich war, hätte ich nie gedacht, dass ich in Zukunft Entwickler werden würde. In den nächsten Jahren habe ich viele Erfahrungen in verschiedenen Bereichen der Informatik gesammelt. Heute kann ich stolz sagen, dass Programmieren nicht nur ein Job für mich ist, sondern auch ein größten Hobby von mir. Viele Projekte, an denen ich teilgenommen habe, benötigten eine direkte Kommunikation mit den Kunden und die Leitung eines Teams. Ich hoffe wir werden bald zusammenarbeiten!"
   },
   "technologies":{
     "title": "Technologien",
-    "subtitle": "",
-    "title_text": ""
+    "subtitle": "Ich wisse und nutze",
+    "title_text": "Unten habe ich die wichtigsten Technologien aufgelistet, die ich jeden Tag benutze. Sprachen, Programme, Tools und mehr!"
   },
   "projects":{
     "title": "Projekten",
     "subtitle": "Ich bin stolz auf",
-    "title_text": "",
+    "title_text": "Unten gibt es ein paar Projekten, auf die ich sehr stolz bin. Sie erforderten verschiedene Fähigkeiten, die ich im Laufe der Jahre gelernt hatte.",
     "matematykaDlaCiebie":{
       "title": "Matematyka dla Ciebie",
-      "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat."
+      "text": "Entworfen und konstruiert für ein Unternehmen, das sich auf Mathematikunterricht spezialisiert ist. Es umfasst ein handgeschriebenes Einkaufsmodul, eine Video-Streaming-Plattform und ein Content Management System (CMS)."
     },
     "unseal":{
       "title": "Unseal",
-      "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat."
+      "text": "Die App und dynamisch Management-Panel entworfen und erstellt für den elektronischen Markt in Polen. Es besteht aus einer Autoren-CMS, mit dem das Zugriffssystem in Unternehmen verwaltet wird."
     },
     "restauracjaStarka":{
       "title": "Starka Restaurant",
-      "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat."
+      "text": "Website erstellt für ein bekanntes Restaurant in Krakau. Verwendete ein spezielles Wordpress-Thema, das von Grund handgeschrieben war."
     },
     "accademiaEnPlato":{
       "title": "En-plato Accademia",
-      "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat."
+      "text": "Landing Page entworfen und geschriebt für Maestro-Pizzaiolo's Kurs in Polen. Enthält von Javascript Skripte, die zur Verwaltung der Site verwendet werden."
     }
   },
   "contact":{
     "title": "Kontakt",
-    "subtitle": "",
-    "title_text": "",
+    "subtitle": "Lass uns reden!",
+    "title_text": "Ich glaube dass die Kommunikation ist die wichtigste Sache im Team. Unten gibt es einem Formular, wenn Sie mit mir kontaktieren möchten.",
     "nameInput":{
-      "placeholder": "",
-      "label": ""
+      "placeholder": "Was ist Ihre Name?",
+      "label": "Name"
     },
     "emailInput":{
-      "placeholder": "",
-      "label": ""
+      "placeholder": "Was ist Ihrer E-Mail-Adresse?",
+      "label": "E-Mail-Adresse"
     },
     "messageInput":{
-      "placeholder": "",
-      "label": ""
+      "placeholder": "Was möchten Sie mir sagen?",
+      "label": "Nachricht"
     },
-    "button": ""
+    "sendButton": "Schicken",
+    "error": "Fahler - schreiben Sie bitte an contact@mnogiec.com",
+    "thankIconAlt": "Nachricht geschickt",
+    "thankHeading": "Danke für deine Nachricht!",
+    "thankText": "Ich werde so schnell als möglich antworten.",
+    "thankButton": "Wieder schicken"
   }
 }

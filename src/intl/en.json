@@ -9,9 +9,11 @@
     "scrollupButton": "Go to home",
     "logo": "Page logo, go to home"
   },
-  "pages":{
+  "seo":{
     "landing":{
-      "title": "MNogiec | React developer"
+      "title": "MNogiec | React developer",
+      "description": "As an ambitious and dedicated web developer, I would love to cooperate with you! Please feel free to visit this portfolio and check my work.",
+      "keywords": "react developer, portfolio, english, german, looking for work, work, cv, resume, polish, react, typescript, redux, gatsby, react native, javascript, html, css, sass, node.js, mongodb, mysql, python, git"
     }
   },
   "header":{
@@ -41,7 +43,7 @@
     "title": "About",
     "subtitle": "Who am I?",
     "title_text": "If you want us to cooperate, it would be nice for you to know something about me. Just read this short summary below!",
-    "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor."
+    "text": "Hi! My name is Nicholas and I'm ambitous Web Developer based in Poland. I warmly think back to my childhood when I edited the first file containing code, just because I wanted to personalize a game server for me and my friends. Throughout the following years I've gained experience in multiple fields of programming. I can proudly say, that it's not only my way to make a living, but also my huge passion. Many projects that I have participated in needed direct communication with clients and managing a team just by myself. I hope we will have an opportunity to work together soon!"
   },
   "technologies":{
     "title": "Technologies",
@@ -54,19 +56,19 @@
     "title_text": "Here is a list of some of my projects, that I have recently done. They required different skills, which I acquired during my career.",
     "matematykaDlaCiebie":{
       "title": "Matematyka dla Ciebie",
-      "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat."
+      "text": "Designed and developer for a company specialized in teaching mathematics students. Includes hand-written shopping system, videos streaming platform and dedicated Content Management System."
     },
     "unseal":{
       "title": "Unseal",
-      "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat."
+      "text": "Web and mobile applications, designed and created for electronics' market in Poland. Contains authorial CMS to manage locks system in offices."
     },
     "restauracjaStarka":{
       "title": "Starka Restaurant",
-      "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat."
+      "text": "Website created for a well-known restaurant in Cracow. Used a dedicated Wordpress theme hand-written from the ground up."
     },
     "accademiaEnPlato":{
       "title": "En-plato Accademia",
-      "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat."
+      "text": "Landing page designed and developer for Maestro Pizzaiolo's company training chefs in Poland. Includes vanilla Javascript algorithms to manage the website."
     }
   },
   "contact":{
@@ -85,6 +87,11 @@
       "placeholder": "Write your message",
       "label": "Message"
     },
-    "button": "Send"
+    "sendButton": "Send",
+    "error": "Error - please message contact@mnogiec.com",
+    "thankIconAlt": "Message sent",
+    "thankHeading": "Thank you for your message!",
+    "thankText": "I will reply as soon as possible.",
+    "thankButton": "Send again"
   }
 }
