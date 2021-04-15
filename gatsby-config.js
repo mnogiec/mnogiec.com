@@ -65,5 +65,13 @@ module.exports = {
         cookieDomain: 'mnogiec.com',
       },
     },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://mnogiec.com',
+        sitemap: 'https://mnogiec.com/sitemap.xml',
+        policy: [{ userAgent: '*', allow: '/' }],
+      },
+    },
   ],
 };
