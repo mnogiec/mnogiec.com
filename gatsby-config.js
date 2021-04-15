@@ -7,6 +7,10 @@ module.exports = {
     description: 'As an ambitious and dedicated web developer, I would love to cooperate with you! Please feel free to visit this portfolio and check my work.',
     author: 'MNogiec',
   },
+  proxy: {
+    prefix: '/api',
+    url: 'http://localhost:5000',
+  },
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-image',
