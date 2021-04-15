@@ -26,7 +26,7 @@ import computerLightSvg from 'assets/images/hero/computer_light.svg';
 import githubSvg from 'assets/images/hero/github.svg';
 import linkedinSvg from 'assets/images/hero/linkedin.svg';
 import mailSvg from 'assets/images/hero/mail.svg';
-import aboutImage from 'assets/images/about/myself.jpg';
+import aboutImage from 'assets/images/about/myself.png';
 
 import adobeXdIcon from 'assets/images/technologies/adobe_xd.png';
 import cssIcon from 'assets/images/technologies/css.png';
