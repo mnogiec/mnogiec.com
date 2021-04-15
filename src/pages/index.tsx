@@ -6,11 +6,13 @@ import { InView } from 'react-intersection-observer';
 import { Context as GlobalContext } from 'context/GlobalContext';
 import Layout from 'components/Layout/Layout';
 import Animate from 'components/Animate/Animate';
+import Axios from 'components/Axios/Axios';
 import Heading from 'components/Heading/Heading';
 import Text from 'components/Text/Text';
 import Button from 'components/Button/Button';
 import Technology from 'components/Technology/Technology';
 import Project from 'components/Project/Project';
+import Spinner from 'components/Spinner/Spinner';
 import TextInput from 'components/Input/TextInput/TextInput';
 import TextArea from 'components/Input/TextArea/TextArea';
 import CookiesNotification from 'components/CookiesNotification/CookiesNotification';
@@ -49,6 +51,7 @@ import accademiaEnPlatoImage from 'assets/images/projects/accademiaEnPlato.png';
 
 import scrollupDarkIcon from 'assets/images/contact/scrollup_dark.svg';
 import scrollupLightIcon from 'assets/images/contact/scrollup_light.svg';
+import messageSentIcon from 'assets/images/contact/message_sent.svg';
 
 
 type ContactStateType = {
@@ -63,12 +66,16 @@ type ContactErrorType = {
   message: undefined | string,
 }
 
+type RequestErrorType = {
+  code: number,
+  msg: string
+}
+
 
 const IndexPage:React.FC = () => {
   const intl = useIntl();
   const { state } = useContext(GlobalContext);
   const [showHeroImage, setShowHeroImage] = useState(false);
-
 
   // States used to handle contact form
   const [name, setName] = useState<ContactStateType>({
@@ -86,6 +93,10 @@ const IndexPage:React.FC = () => {
     wasTouched: false,
     isFocused: false,
   });
+
+  const [wasContactRequestSent, setWasContactRequestSent] = useState(false);
+  const [contactRequestLoading, setContactRequestLoading] = useState(false);
+  const [contactRequestError, setContactRequestError] = useState<RequestErrorType | null>(null);
 
   // State to handle errors validation passed to Input components
   const [errors, setErrors] = useState<ContactErrorType>({
@@ -171,7 +182,23 @@ const IndexPage:React.FC = () => {
 
     if ((!errors.name && !errors.email && !errors.message)
     && name.wasTouched && email.wasTouched && message.wasTouched) {
-      // TODO: SUBMIT
+      // Submit
+      setContactRequestError(null);
+      setContactRequestLoading(true);
+
+      Axios.post('/mail', {
+        name: name.value.trim(),
+        email: email.value.trim(),
+        message: message.value.trim().replaceAll('\n', '<br/>'),
+      })
+      .then(() => {
+        setContactRequestLoading(false);
+        setWasContactRequestSent(true);
+      })
+      .catch((error) => {
+        setContactRequestLoading(false);
+        setContactRequestError(error.response.data);
+      });
     }
   };
 
@@ -240,7 +267,7 @@ const IndexPage:React.FC = () => {
               <S.StyledHeroSocialLink href="https://github.com/mnogiec" rel="noreferrer" target="_blank">
                 <S.StyledHeroSocialIcon alt="GitHub" src={githubSvg} />
               </S.StyledHeroSocialLink>
-              <S.StyledHeroSocialLink href="mailto:nogiecmikolaj@gmail.com" target="_blank">
+              <S.StyledHeroSocialLink href="mailto:contact@mnogiec.com" target="_blank">
                 <S.StyledHeroSocialIcon alt="Mail" src={mailSvg} />
               </S.StyledHeroSocialLink>
             </S.StyledHeroBottomBar>
@@ -371,71 +398,113 @@ const IndexPage:React.FC = () => {
           </Heading>
           <Animate delay={900}>
             <S.StyledContactSection onSubmit={onContactSubmit}>
-              <TextInput
-                name="name"
-                label={intl.formatMessage({ id: 'contact.nameInput.label' })}
-                placeholder={intl.formatMessage({ id: 'contact.nameInput.placeholder' })}
-                value={name.value}
-                error={errors.name}
-                onBlur={() => setName((state) => ({
-                  ...state,
-                  wasTouched: true,
-                  isFocused: false,
-                }))}
-                onFocus={() => setName((state) => ({
-                  ...state,
-                  isFocused: true,
-                }))}
-                onInput={(event) => setName((state) => ({
-                  ...state,
-                  value: event.target.value,
-                }))}
-              />
-              <TextInput
-                name="email"
-                label={intl.formatMessage({ id: 'contact.emailInput.label' })}
-                placeholder={intl.formatMessage({ id: 'contact.emailInput.placeholder' })}
-                value={email.value}
-                error={errors.email}
-                onBlur={() => setEmail((state) => ({
-                  ...state,
-                  wasTouched: true,
-                  isFocused: false,
-                }))}
-                onFocus={() => setEmail((state) => ({
-                  ...state,
-                  isFocused: true,
-                }))}
-                onInput={(event) => setEmail((state) => ({
-                  ...state,
-                  value: event.target.value,
-                }))}
-              />
-              <TextArea
-                name="message"
-                autoComplete="off"
-                label={intl.formatMessage({ id: 'contact.messageInput.label' })}
-                placeholder={intl.formatMessage({ id: 'contact.messageInput.placeholder' })}
-                value={message.value}
-                error={errors.message}
-                resize="vertical"
-                onBlur={() => setMessage((state) => ({
-                  ...state,
-                  wasTouched: true,
-                  isFocused: false,
-                }))}
-                onFocus={() => setMessage((state) => ({
-                  ...state,
-                  isFocused: true,
-                }))}
-                onInput={(event) => setMessage((state) => ({
-                  ...state,
-                  value: event.target.value,
-                }))}
-              />
-              <S.StyledContactSectionButtonWrapper>
-                <Button submit bold>{intl.formatMessage({ id: 'contact.button' })}</Button>
-              </S.StyledContactSectionButtonWrapper>
+              {contactRequestLoading && (
+                <Spinner margin="5rem auto" />
+              )}
+              {
+                wasContactRequestSent && !contactRequestLoading && (
+                  <S.StyledContactThankWrapper>
+                    <S.StyledContactThankIcon
+                      src={messageSentIcon}
+                      alt={intl.formatMessage({ id: 'contact.thankIconAlt' })}
+                    />
+                      <Text size="l" tac bold>
+                        {intl.formatMessage({ id: 'contact.thankHeading' })}
+                      </Text>
+                      <Text size="1.8rem" tac margin="1rem 0">
+                        {intl.formatMessage({ id: 'contact.thankText' })}
+                      </Text>
+                      <Button
+                        clicked={() => {
+                          setMessage({
+                            value: '',
+                            wasTouched: false,
+                            isFocused: false,
+                          });
+                          setWasContactRequestSent(false);
+                        }}
+                        bold
+                      >{intl.formatMessage({ id: 'contact.thankButton' })}
+                      </Button>
+                  </S.StyledContactThankWrapper>
+                )
+              }
+              {
+                !wasContactRequestSent && !contactRequestLoading && (
+                  (
+                    <>
+                      <TextInput
+                        name="name"
+                        label={intl.formatMessage({ id: 'contact.nameInput.label' })}
+                        placeholder={intl.formatMessage({ id: 'contact.nameInput.placeholder' })}
+                        value={name.value}
+                        error={errors.name}
+                        onBlur={() => setName((state) => ({
+                          ...state,
+                          wasTouched: true,
+                          isFocused: false,
+                        }))}
+                        onFocus={() => setName((state) => ({
+                          ...state,
+                          isFocused: true,
+                        }))}
+                        onInput={(event) => setName((state) => ({
+                          ...state,
+                          value: event.target.value,
+                        }))}
+                      />
+                      <TextInput
+                        name="email"
+                        label={intl.formatMessage({ id: 'contact.emailInput.label' })}
+                        placeholder={intl.formatMessage({ id: 'contact.emailInput.placeholder' })}
+                        value={email.value}
+                        error={errors.email}
+                        onBlur={() => setEmail((state) => ({
+                          ...state,
+                          wasTouched: true,
+                          isFocused: false,
+                        }))}
+                        onFocus={() => setEmail((state) => ({
+                          ...state,
+                          isFocused: true,
+                        }))}
+                        onInput={(event) => setEmail((state) => ({
+                          ...state,
+                          value: event.target.value,
+                        }))}
+                      />
+                      <TextArea
+                        name="message"
+                        autoComplete="off"
+                        label={intl.formatMessage({ id: 'contact.messageInput.label' })}
+                        placeholder={intl.formatMessage({ id: 'contact.messageInput.placeholder' })}
+                        value={message.value}
+                        error={errors.message}
+                        resize="vertical"
+                        onBlur={() => setMessage((state) => ({
+                          ...state,
+                          wasTouched: true,
+                          isFocused: false,
+                        }))}
+                        onFocus={() => setMessage((state) => ({
+                          ...state,
+                          isFocused: true,
+                        }))}
+                        onInput={(event) => setMessage((state) => ({
+                          ...state,
+                          value: event.target.value,
+                        }))}
+                      />
+                      {contactRequestError && <Text error tac>{intl.formatMessage({ id: 'contact.error' })}</Text>}
+                      <S.StyledContactSectionButtonWrapper>
+                        <Button submit bold>
+                          {intl.formatMessage({ id: 'contact.sendButton' })}
+                        </Button>
+                      </S.StyledContactSectionButtonWrapper>
+                    </>
+                  )
+                )
+              }
             </S.StyledContactSection>
           </Animate>
 
