@@ -1,7 +1,10 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, {
+ useState, useEffect, useContext, useRef,
+} from 'react';
 import scrollTo from 'gatsby-plugin-smoothscroll';
 import { useIntl } from 'gatsby-plugin-intl';
 import { InView } from 'react-intersection-observer';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 import { Context as GlobalContext } from 'context/GlobalContext';
 import Layout from 'components/Layout/Layout';
@@ -75,6 +78,8 @@ type RequestErrorType = {
 const IndexPage:React.FC = () => {
   const intl = useIntl();
   const { state } = useContext(GlobalContext);
+  const reRef = useRef<ReCAPTCHA>();
+
   const [showHeroImage, setShowHeroImage] = useState(false);
 
   // States used to handle contact form
@@ -164,7 +169,7 @@ const IndexPage:React.FC = () => {
   };
 
   // Function to handle contact form submit event
-  const onContactSubmit:any = (event:Event) => {
+  const onContactSubmit:any = async (event:Event) => {
     event.preventDefault();
 
     setName((state) => ({
@@ -186,16 +191,20 @@ const IndexPage:React.FC = () => {
       setContactRequestError(null);
       setContactRequestLoading(true);
 
+      const token = await reRef.current?.executeAsync();
+
       Axios.post('/mail', {
         name: name.value.trim(),
         email: email.value.trim(),
         message: message.value.trim().replaceAll('\n', '<br/>'),
+        token,
       })
       .then(() => {
         setContactRequestLoading(false);
         setWasContactRequestSent(true);
       })
       .catch((error) => {
+        reRef.current?.reset();
         setContactRequestLoading(false);
         setContactRequestError(error.response.data);
       });
@@ -396,6 +405,7 @@ const IndexPage:React.FC = () => {
           >
             {intl.formatMessage({ id: 'contact.title_text' })}
           </Heading>
+
           <Animate delay={900}>
             <S.StyledContactSection onSubmit={onContactSubmit}>
               {contactRequestLoading && (
@@ -422,6 +432,7 @@ const IndexPage:React.FC = () => {
                             isFocused: false,
                           });
                           setWasContactRequestSent(false);
+                          reRef.current?.reset();
                         }}
                         bold
                       >{intl.formatMessage({ id: 'contact.thankButton' })}
@@ -512,6 +523,15 @@ const IndexPage:React.FC = () => {
             <S.StyledScrollupIcon src={state.theme === 'light' ? scrollupLightIcon : scrollupDarkIcon} alt="Home" />
           </S.StyledScrollupButton>
         </S.StyledSectionWrapper>
+        <S.StyledReCaptchaWrapper>
+          <ReCAPTCHA
+            sitekey="6LdLXKsaAAAAAC4rx0IjxJx2H2ecBpR-npL3OEds"
+            size="invisible"
+            // @ts-ignore
+            ref={reRef}
+            badge="inline"
+          />
+        </S.StyledReCaptchaWrapper>
       </S.StyledSection>
 
       {/* FOOTER */}

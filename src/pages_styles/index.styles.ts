@@ -14,6 +14,7 @@ export const StyledSection = styled.div`
   width: 100%;
   margin: 0 auto;
   padding: 7rem 3rem;
+  position: relative;
   display: flex;
   flex-direction: column;
   background: linear-gradient(var(--color-sectionGradient-start), var(--color-sectionGradient-end));
@@ -342,4 +343,13 @@ export const StyledScrollupButton = styled.button`
 
 export const StyledScrollupIcon = styled.img`
   display: block;
+`;
+
+
+// RECAPTCHA
+export const StyledReCaptchaWrapper = styled.div`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
 `;
