@@ -1,6 +1,7 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
 const fetch = require('node-fetch');
+const path = require('path');
 require('dotenv').config({ path: `${__dirname}/config/.env` });
 
 
@@ -76,6 +77,13 @@ app.post('/api/mail', async (req, res) => {
     return res.status(500).send({ code: 500, msg: 'Unknown server error', error: error.message });
   }
 });
+
+if (process.env.NODE_ENV === 'production') {
+  // Serve React App
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '/public/index.html'));
+  });
+}
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}.`);
