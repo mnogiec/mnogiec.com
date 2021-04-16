@@ -38,7 +38,7 @@ const Footer:React.FC = () => {
         <S.StyledLink target="_blank" href="https://github.com/mnogiec" rel="noreferrer">
           <S.StyledIcon src={state.theme === 'light' ? githubIconLight : githubIconDark} alt="Github" />
         </S.StyledLink>
-        <S.StyledLink target="_blank" href="mailto:nogiecmikolaj@gmail.com">
+        <S.StyledLink target="_blank" href="mailto:contact@mnogiec.com">
           <S.StyledIcon src={state.theme === 'light' ? mailIconLight : mailIconDark} alt="Mail" />
         </S.StyledLink>
       </S.StyledIconsWrapper>
