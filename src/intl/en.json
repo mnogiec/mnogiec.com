@@ -93,5 +93,14 @@
     "thankHeading": "Thank you for your message!",
     "thankText": "I will reply as soon as possible.",
     "thankButton": "Send again"
+  },
+  "inputErrors":{
+    "required": "This field is required",
+    "min": "Value too low",
+    "max": "Value too high",
+    "minLength": "Not enough letters",
+    "maxLength": "Too many letters",
+    "pattern": "Invalid e-mail address",
+    "default": "Wrong value"
   }
 }

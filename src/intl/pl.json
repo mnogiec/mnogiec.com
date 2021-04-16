@@ -93,5 +93,14 @@
     "thankHeading": "Dziękuję za wiadomość!",
     "thankText": "Odpowiem na nią najszybciej jak to możliwe.",
     "thankButton": "Wyślij ponownie"
+  },
+  "inputErrors":{
+    "required": "To pole jest wymagane",
+    "min": "Wartość za mała",
+    "max": "Wartość za duża",
+    "minLength": "Za mało znaków",
+    "maxLength": "Za dużo znaków",
+    "pattern": "Nieprawidłowy adres e-mail",
+    "default": "Błędna wartość"
   }
 }
