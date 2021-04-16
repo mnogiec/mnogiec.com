@@ -240,11 +240,11 @@ export const StyledAboutImage = styled.img`
   display: block;
   width: 100%;
   padding: 2rem;
-  box-shadow: ${({ theme }) => theme.shadow};
 
   @media ${media.tablet}{
     width: 40rem;
     padding: 0;
+    box-shadow: ${({ theme }) => theme.shadow};
   }
 `;
 
