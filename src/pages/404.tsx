@@ -1,40 +1,47 @@
-import { useEffect, useContext } from 'react';
+import { useEffect } from 'react';
 import { navigate } from 'gatsby';
 
-import { Context as GlobalContext } from 'context/GlobalContext';
 
+const NotFoundPage:React.FC = () => {
+  let newLanguage:'en'|'pl'|'de' = 'en';
 
-const NotFoundPage = () => {
-  let { state } = useContext(GlobalContext);
+  if (typeof window !== 'undefined') {
+    const path:string = window.location.pathname;
 
-  if (typeof window === 'undefined') {
-    state = {
-      language: 'en',
-      theme: 'light',
-      hadDisplayedCookies: false,
-    };
-  }
+    if (path.length < 3) {
+      newLanguage = 'en';
+    } else if (path.length >= 3) {
+      if (path.substr(0, 3) === '/en') {
+        newLanguage = 'en';
+      } else if (path.substr(0, 3) === '/pl') {
+        newLanguage = 'pl';
+      } else if (path.substr(0, 3) === '/de') {
+        newLanguage = 'de';
+      }
+    }
 
-
-  useEffect(():any => {
-    switch (state.language) {
+    switch (newLanguage) {
       case 'en': {
-        return navigate('/');
+        navigate('/');
+        break;
       }
 
       case 'de': {
-        return navigate('/de');
+        navigate('/de');
+        break;
       }
 
       case 'pl': {
-        return navigate('/pl');
+        navigate('/pl');
+        break;
       }
 
       default: {
-        return navigate('/');
+        navigate('/');
+        break;
       }
     }
-  }, []);
+  }
 
   return null;
 };
