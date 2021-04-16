@@ -1,0 +1,97 @@
+{
+  "aria":{
+    "hamburgerMenu": {
+      "open": "Open the menu",
+      "close": "Close the menu"
+    },
+    "languagesButton": "Change language",
+    "themeButton": "Change theme",
+    "scrollupButton": "Go to home",
+    "logo": "Page logo, go to home"
+  },
+  "seo":{
+    "landing":{
+      "title": "MNogiec | React developer",
+      "description": "As an ambitious and dedicated web developer, I would love to cooperate with you! Please feel free to visit this portfolio and check my work.",
+      "keywords": "react developer, portfolio, english, german, looking for work, work, cv, resume, polish, react, typescript, redux, gatsby, react native, javascript, html, css, sass, node.js, mongodb, mysql, python, git"
+    }
+  },
+  "header":{
+    "logoHover": "Home",
+    "about": "About",
+    "technologies": "Technologies",
+    "projects": "Projects",
+    "contact": "Contact",
+    "lightTheme": "Light theme", 
+    "darkTheme": "Dark theme",
+    "language": "language"
+  },
+  "hero":{
+    "title": "I'm Nicholas",
+    "subtitle": "React developer",
+    "projectsButton": "My projects",
+    "contactButton": "Contact me"
+  },
+  "cookie":{
+    "text_start": "This website uses ",
+    "text_cookies": "cookies",
+    "text_link": "https://en.wikipedia.org/wiki/HTTP_cookie",
+    "text_end": " to ensure you are getting the best possible experience.",
+    "acceptButton": "Accept"
+  },
+  "about":{
+    "title": "About",
+    "subtitle": "Who am I?",
+    "title_text": "If you want us to cooperate, it would be nice for you to know something about me. Just read this short summary below!",
+    "text": "Hi! My name is Nicholas and I'm ambitous Web Developer based in Poland. I warmly think back to my childhood when I edited the first file containing code, just because I wanted to personalize a game server for me and my friends. Throughout the following years I've gained experience in multiple fields of programming. I can proudly say, that it's not only my way to make a living, but also my huge passion. Many projects that I have participated in needed direct communication with clients and managing a team just by myself. I hope we will have an opportunity to work together soon!"
+  },
+  "technologies":{
+    "title": "Technologies",
+    "subtitle": "I know and use",
+    "title_text": "These are the most important and crucial technologies I use on a daily basis. Skills, programming languages, tools and more!"
+  },
+  "projects":{
+    "title": "Projects",
+    "subtitle": "I'm proud of",
+    "title_text": "Here is a list of some of my projects, that I have recently done. They required different skills, which I acquired during my career.",
+    "matematykaDlaCiebie":{
+      "title": "Matematyka dla Ciebie",
+      "text": "Designed and developer for a company specialized in teaching mathematics students. Includes hand-written shopping system, videos streaming platform and dedicated Content Management System."
+    },
+    "unseal":{
+      "title": "Unseal",
+      "text": "Web and mobile applications, designed and created for electronics' market in Poland. Contains authorial CMS to manage locks system in offices."
+    },
+    "restauracjaStarka":{
+      "title": "Starka Restaurant",
+      "text": "Website created for a well-known restaurant in Cracow. Used a dedicated Wordpress theme hand-written from the ground up."
+    },
+    "accademiaEnPlato":{
+      "title": "En-plato Accademia",
+      "text": "Landing page designed and developer for Maestro Pizzaiolo's company training chefs in Poland. Includes vanilla Javascript algorithms to manage the website."
+    }
+  },
+  "contact":{
+    "title": "Contact",
+    "subtitle": "Let's talk!",
+    "title_text": "I believe communication is the key! Please feel free to use the form below to send me a message about any matter.",
+    "nameInput":{
+      "placeholder": "What's your name?",
+      "label": "Name"
+    },
+    "emailInput":{
+      "placeholder": "What's your e-mail address?",
+      "label": "E-mail address"
+    },
+    "messageInput":{
+      "placeholder": "Write your message",
+      "label": "Message"
+    },
+    "sendButton": "Send",
+    "error": "Error - please message contact@mnogiec.com",
+    "thankIconAlt": "Message sent",
+    "thankHeading": "Thank you for your message!",
+    "thankText": "I will reply as soon as possible.",
+    "thankButton": "Send again"
+  }
+}

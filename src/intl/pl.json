@@ -1,0 +1,97 @@
+{
+  "aria":{
+    "hamburgerMenu": {
+      "open": "Otwórz menu",
+      "close": "Zamknij menu"
+    },
+    "languagesButton": "Zmień język",
+    "themeButton": "Zmień tło strony",
+    "scrollupButton": "Idź na początek strony",
+    "logo": "Logo strony, idź na początek strony"
+  },
+  "seo":{
+    "landing":{
+      "title": "MNogiec | React developer",
+      "description": "Cześć! Jestem Mikołaj i od kilku lat rozwijam się jako Web Developer. Zapoznaj się z moim portfolio i sprawdź, jakie umiejętności posiadam.",
+      "keywords": "react developer, programista, portfolio, angielski, niemiecki, szuka pracy, praca, cv, react, typescript, redux, gatsby, react native, javascript, html, css, sass, node.js, mongodb, mysql, python, git"
+    }
+  },
+  "header":{
+    "logoHover": "Strona główna",
+    "about": "O mnie",
+    "technologies": "Technologie",
+    "projects": "Projekty",
+    "contact": "Kontakt",
+    "lightTheme": "Jasny motyw", 
+    "darkTheme": "Ciemny motyw",
+    "language": "język"
+  },
+  "hero":{
+    "title": "Jestem Mikołaj",
+    "subtitle": "React developer",
+    "projectsButton": "Moje projekty",
+    "contactButton": "Kontakt"
+  },
+  "cookie":{
+    "text_start": "Ta strona używa ",
+    "text_cookies": "ciasteczek",
+    "text_link": "https://pl.wikipedia.org/wiki/HTTP_cookie",
+    "text_end": ", aby zagwarantować funkcjonalności na jak najwyższym poziomie.",
+    "acceptButton": "Rozumiem"
+  },
+  "about":{
+    "title": "O mnie",
+    "subtitle": "Kim jestem?",
+    "title_text": "Jeśli przed współpracą chcesz dowiedzieć się czegoś o mnie, przeczytaj poniższe podsumowanie.",
+    "text": "Hej! Mam na imię Mikołaj i jestem ambitnym Web Developerem z Krakowa. Z nutą nostalgii wracam myślami do momentu, w którym miałem pierwszą styczność z kodem. Edytując (metodą prób i błędów) ten krótki plik odpowiedzialny za konfigurację serwera w grze, nigdy bym nie pomyślał, że tak wchłonie mnie świat \"zer i jedynek\". Przez kilka kolejnych lat nabrałem doświadczenie w najróżniejszych dziedzinach kodowania. Dzisiaj z dumą mogę powiedzieć, że programowanie nie jest dla mnie jedynie źródłem zarobku, ale też jedną z największych pasji. Projekty, w których uczestniczyłem w swojej karierze, nie wymagały ode mnie jedynie umiejętności twardych. W wielu z nich byłem też odpowiedzialny zarówno za bezpośrednią komunikację z klientem, jak i zarządzanie zespołem programistów. Mam ogromną nadzieję, że będziemy mieli okazję ze sobą współpracować!"
+  },
+  "technologies":{
+    "title": "Technologie",
+    "subtitle": "Które znam i używam",
+    "title_text": "Poniżej wymieniłem najistotniejsze technologie, z których korzystam każdego dnia. Języki, programy, narzędzia i więcej!"
+  },
+  "projects":{
+    "title": "Projekty",
+    "subtitle": "Z których jestem dumny",
+    "title_text": "Poniżej znajduje się kilka najświeższych projektów, z których jestem wyjątkowo dumny. Wymagały one różnych umiejętności, które nabyłem przez lata.",
+    "matematykaDlaCiebie":{
+      "title": "Matematyka dla Ciebie",
+      "text": "Zaprojektowany i zaprogramowany dla firmy wyspecjalizowanej w nauczaniu matematyki. Zawiera ręcznie napisany moduł zakupowy, platformę do streamingu wideo oraz System Zarządzania Treścią."
+    },
+    "unseal":{
+      "title": "Unseal",
+      "text": "Aplikacja mobilna oraz dynamiczny panel zarządzania - zaprojektowane i stworzone z myślą o rynku elektronicznym. Składa się między innymi z autorskiego CMS służącego do zarządzania systemem dostępów w firmach."
+    },
+    "restauracjaStarka":{
+      "title": "Restauracja Starka",
+      "text": "Strona internetowa zaprogramowana dla znanej restauracji na krakowskim Kazimierzu. Wyróżnia się ręcznie napisanym motywem w systemie Wordpress."
+    },
+    "accademiaEnPlato":{
+      "title": "Accademia En-plato",
+      "text": "Landing page zaprojektowany i napisany od zera dla Maestro Pizzaiolo w Polsce. Zawiera skrypty napisane ręcznie w języku Javascript, które służą do zarządzania stroną."
+    }
+  },
+  "contact":{
+    "title": "Kontakt",
+    "subtitle": "Porozmawiajmy!",
+    "title_text": "Wierzę, że komunikacja jest najważniejszą kwestią we współpracy. Jeśli chcesz ze mną porozmawiać, użyj proszę poniższego formularza.",
+    "nameInput":{
+      "placeholder": "Jak mogę się do Ciebie zwracać?",
+      "label": "Nazwa"
+    },
+    "emailInput":{
+      "placeholder": "Jaki jest Twój adres e-mail?",
+      "label": "Adres e-mail"
+    },
+    "messageInput":{
+      "placeholder": "Napisz do mnie wiadomość",
+      "label": "Wiadomość"
+    },
+    "sendButton": "Wyślij",
+    "error": "Błąd - proszę pisać na contact@mnogiec.com",
+    "thankIconAlt": "Wiadomość wysłano",
+    "thankHeading": "Dziękuję za wiadomość!",
+    "thankText": "Odpowiem na nią najszybciej jak to możliwe.",
+    "thankButton": "Wyślij ponownie"
+  }
+}
