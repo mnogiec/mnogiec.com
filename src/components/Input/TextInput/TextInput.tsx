@@ -1,4 +1,5 @@
 import React from 'react';
+import { useIntl } from 'gatsby-plugin-intl';
 
 import Text from 'components/Text/Text';
 
@@ -10,37 +11,38 @@ const TextInput:React.FC<T.Props> = (props) => {
   const {
     error, label, value,
   }:T.Props = props;
+  const intl = useIntl();
+
 
   let errorMessage:string = '';
   if (error) {
-    // TODO: Intl
     switch (error) {
       case 'required': {
-        errorMessage = 'To pole jest wymagane!';
+        errorMessage = intl.formatMessage({ id: 'inputErrors.required' });
         break;
       }
       case 'min': {
-        errorMessage = 'Wartość za mała!';
+        errorMessage = intl.formatMessage({ id: 'inputErrors.min' });
         break;
       }
       case 'max': {
-        errorMessage = 'Wartość za duża!';
+        errorMessage = intl.formatMessage({ id: 'inputErrors.max' });
         break;
       }
       case 'minLength': {
-        errorMessage = 'Za mało znaków!';
+        errorMessage = intl.formatMessage({ id: 'inputErrors.minLength' });
         break;
       }
       case 'maxLength': {
-        errorMessage = 'Za dużo znaków!';
+        errorMessage = intl.formatMessage({ id: 'inputErrors.maxLength' });
         break;
       }
       case 'pattern': {
-        errorMessage = 'Błędna wartość!';
+        errorMessage = intl.formatMessage({ id: 'inputErrors.pattern' });
         break;
       }
       default: {
-        errorMessage = 'Błędna wartość!';
+        errorMessage = intl.formatMessage({ id: 'inputErrors.default' });
         break;
       }
     }
@@ -52,7 +54,9 @@ const TextInput:React.FC<T.Props> = (props) => {
         <S.StyledLabel show={value.length > 0}>{label}:</S.StyledLabel>
         <S.StyledInput {...props} type="text" />
         <S.ErrorWrapper show={error}>
-          <Text bold color={error ? '#d92a2a' : 'transparent'} size="1.4rem">{errorMessage || 'Error'}</Text>
+          <Text bold color={error ? '#d92a2a' : 'transparent'} size="1.4rem">
+            {errorMessage || intl.formatMessage({ id: 'inputErrors.default' })}
+          </Text>
         </S.ErrorWrapper>
       </S.StyledWrapper>
     );

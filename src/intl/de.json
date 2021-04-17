@@ -43,7 +43,7 @@
     "title": "Über mich",
     "subtitle": "Wer bin ich?",
     "title_text": "Wenn Sie vor der Zusammenarbeit etwas über mich wissen möchten, lesen Sie bitte die folgende Zusammenfassung.",
-    "text": "Hallo! Ich heiße Nikolas und ich bin ein ehrgeiziger Webentwickler aus Polen. Ich erinnere mich mit Freude auf den ersten Moment, als ich Kontakt mit dem Code hatte. Wenn ich diese kurze Datei bearbeite, die für die Serverkonfiguration im Spiel verantwortlich war, hätte ich nie gedacht, dass ich in Zukunft Entwickler werden würde. In den nächsten Jahren habe ich viele Erfahrungen in verschiedenen Bereichen der Informatik gesammelt. Heute kann ich stolz sagen, dass Programmieren nicht nur ein Job für mich ist, sondern auch ein größten Hobby von mir. Viele Projekte, an denen ich teilgenommen habe, benötigten eine direkte Kommunikation mit den Kunden und die Leitung eines Teams. Ich hoffe wir werden bald zusammenarbeiten!"
+    "text": "Hallo! Ich heiße Nikolas und ich bin ein ehrgeiziger Webentwickler aus Polen. Ich erinnere mich mit Freude auf den ersten Moment, als ich Kontakt mit dem Code hatte. Wenn ich diese kurze Datei bearbeite, die für die Serverkonfiguration im Spiel verantwortlich war, hätte ich nie gedacht, dass ich in Zukunft Entwickler werden würde. In den nächsten Jahren habe ich viele Erfahrungen in verschiedenen Bereichen der Informatik gesammelt. Heute kann ich stolz sagen, dass Programmieren nicht nur ein Job für mich ist, sondern auch mein größten Hobby. Viele Projekte, an denen ich teilgenommen habe, benötigten eine direkte Kommunikation mit den Kunden und die Leitung eines Teams. Ich hoffe wir werden bald zusammenarbeiten!"
   },
   "technologies":{
     "title": "Technologien",
@@ -51,16 +51,16 @@
     "title_text": "Unten habe ich die wichtigsten Technologien aufgelistet, die ich jeden Tag benutze. Sprachen, Programme, Tools und mehr!"
   },
   "projects":{
-    "title": "Projekten",
+    "title": "Projekte",
     "subtitle": "Ich bin stolz auf",
-    "title_text": "Unten gibt es ein paar Projekten, auf die ich sehr stolz bin. Sie erforderten verschiedene Fähigkeiten, die ich im Laufe der Jahre gelernt hatte.",
+    "title_text": "Unten gibt es ein paar Projekte, auf die ich sehr stolz bin. Sie erforderten verschiedene Fähigkeiten, die ich im Laufe der Jahre gelernt habe.",
     "matematykaDlaCiebie":{
       "title": "Matematyka dla Ciebie",
       "text": "Entworfen und konstruiert für ein Unternehmen, das sich auf Mathematikunterricht spezialisiert ist. Es umfasst ein handgeschriebenes Einkaufsmodul, eine Video-Streaming-Plattform und ein Content Management System (CMS)."
     },
     "unseal":{
       "title": "Unseal",
-      "text": "Die App und dynamisch Management-Panel entworfen und erstellt für den elektronischen Markt in Polen. Es besteht aus einer Autoren-CMS, mit dem das Zugriffssystem in Unternehmen verwaltet wird."
+      "text": "Die App und dynamisch Management-Panel designt und erstellt für den elektronischen Markt in Polen. Es besteht aus einer Autoren-CMS, mit dem das Zugriffssystem in Unternehmen verwaltet wird."
     },
     "restauracjaStarka":{
       "title": "Starka Restaurant",
@@ -74,7 +74,7 @@
   "contact":{
     "title": "Kontakt",
     "subtitle": "Lass uns reden!",
-    "title_text": "Ich glaube dass die Kommunikation ist die wichtigste Sache im Team. Unten gibt es einem Formular, wenn Sie mit mir kontaktieren möchten.",
+    "title_text": "Ich glaube dass die Kommunikation ist die wichtigste Sache im Team. Unten gibt es ein Formular, wenn Sie mit mir kontaktieren möchten.",
     "nameInput":{
       "placeholder": "Was ist Ihre Name?",
       "label": "Name"
@@ -93,5 +93,14 @@
     "thankHeading": "Danke für deine Nachricht!",
     "thankText": "Ich werde so schnell als möglich antworten.",
     "thankButton": "Wieder schicken"
+  },
+  "inputErrors":{
+    "required": "Dieses Feld ist erforderlich",
+    "min": "Wert zu niedrig",
+    "max": "Wert zu hoch",
+    "minLength": "Nicht genug Zeichen",
+    "maxLength": "Zu viele Zeichen",
+    "pattern": "Unrichtige E-Mail-Adresse",
+    "default": "Unrichtige Wert"
   }
 }
