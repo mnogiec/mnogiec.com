@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 import { useIntl } from 'gatsby-plugin-intl';
 import ReCAPTCHA from 'react-google-recaptcha';
 
@@ -14,16 +14,14 @@ import messageSentIcon from 'assets/images/contact/message_sent.svg';
 import * as S from './ContactForm.styles';
 
 
+type Props = {
+  reRef: React.MutableRefObject<ReCAPTCHA | undefined>;
+}
+
 type ContactErrorType = {
   name: undefined | string,
   email: undefined | string,
   message: undefined | string,
-}
-
-type ContactStateType = {
-  value: string,
-  wasTouched: boolean,
-  isFocused: boolean,
 }
 
 type RequestErrorType = {
@@ -31,13 +29,107 @@ type RequestErrorType = {
   msg: string
 }
 
-type Props = {
-  reRef: React.MutableRefObject<ReCAPTCHA | undefined>;
+type FormReducerState = {
+  name: {
+    value: string,
+    wasTouched: boolean,
+    isFocused: boolean,
+  },
+  email: {
+    value: string,
+    wasTouched: boolean,
+    isFocused: boolean,
+  },
+  message :{
+    value: string,
+    wasTouched: boolean,
+    isFocused: boolean,
+  },
 }
+
+type FormReducerAction = {
+  type: 'blur'|'focus'|'input'|'touchAll'|'clearMessage',
+  payload?: {
+    field: 'name'|'email'|'message',
+    value?: string
+  }
+}
+
+
+// Reducer used inside formState useReducer
+const formReducer = (state:FormReducerState, action:FormReducerAction):FormReducerState => {
+  switch (action.type) {
+    case 'blur': {
+      const newState = { ...state };
+      newState[action.payload!.field] = {
+        ...newState[action.payload!.field],
+        wasTouched: true,
+        isFocused: false,
+      };
+
+      return newState;
+    }
+
+    case 'focus': {
+      const newState = { ...state };
+      newState[action.payload!.field] = {
+        ...newState[action.payload!.field],
+        isFocused: true,
+      };
+
+      return newState;
+    }
+
+    case 'input': {
+      const newState = { ...state };
+      newState[action.payload!.field] = {
+        ...newState[action.payload!.field],
+        value: action.payload!.value || '',
+      };
+
+      return newState;
+    }
+
+    case 'touchAll': {
+      return {
+        ...state,
+        name: {
+          ...state.name,
+          wasTouched: true,
+        },
+        email: {
+          ...state.email,
+          wasTouched: true,
+        },
+        message: {
+          ...state.message,
+          wasTouched: true,
+        },
+      };
+    }
+
+    case 'clearMessage': {
+      return {
+        ...state,
+        message: {
+          ...state.message,
+          value: '',
+          wasTouched: false,
+          isFocused: false,
+        },
+      };
+    }
+
+    default: {
+      return state;
+    }
+  }
+};
 
 
 const ContactForm:React.FC<Props> = ({ reRef }) => {
   const intl = useIntl();
+
 
   const [wasContactRequestSent, setWasContactRequestSent] = useState(false);
   const [contactRequestLoading, setContactRequestLoading] = useState(false);
@@ -45,24 +137,24 @@ const ContactForm:React.FC<Props> = ({ reRef }) => {
 
 
   // Reducer to manage form state
+  const [formState, dispatch] = useReducer(formReducer, {
+    name: {
+      value: '',
+      wasTouched: false,
+      isFocused: false,
+    },
+    email: {
+      value: '',
+      wasTouched: false,
+      isFocused: false,
+    },
+    message: {
+      value: '',
+      wasTouched: false,
+      isFocused: false,
+    },
+  });
 
-
-  // States used to handle contact form
-  const [name, setName] = useState<ContactStateType>({
-    value: '',
-    wasTouched: false,
-    isFocused: false,
-  });
-  const [email, setEmail] = useState<ContactStateType>({
-    value: '',
-    wasTouched: false,
-    isFocused: false,
-  });
-  const [message, setMessage] = useState<ContactStateType>({
-    value: '',
-    wasTouched: false,
-    isFocused: false,
-  });
 
   // State to handle errors validation passed to Input components
   const [errors, setErrors] = useState<ContactErrorType>({
@@ -73,7 +165,7 @@ const ContactForm:React.FC<Props> = ({ reRef }) => {
 
 
   // Function to validate contact form inputs IRL
-  const validateContactForm = () => {
+  const validateContactForm = ():void => {
     const newErrors:any = {
       name: undefined,
       email: undefined,
@@ -81,14 +173,14 @@ const ContactForm:React.FC<Props> = ({ reRef }) => {
     };
 
     // ?NAME:
-    if (name.wasTouched) {
-      if (name.value.length === 0 && name.wasTouched) {
+    if (formState.name.wasTouched) {
+      if (formState.name.value.length === 0 && formState.name.wasTouched) {
         // required
         newErrors.name = 'required';
-      } else if (name.value.length < 2) {
+      } else if (formState.name.value.length < 2) {
         // minLength
         newErrors.name = 'minLength';
-      } else if (name.value.length > 100) {
+      } else if (formState.name.value.length > 100) {
         // maxLength
         newErrors.name = 'maxLength';
       }
@@ -96,30 +188,30 @@ const ContactForm:React.FC<Props> = ({ reRef }) => {
 
     const mailRegExp:RegExp = /^\S+@\S+\.\S+$/;
     // ?EMAIL:
-    if (email.wasTouched) {
-      if (email.value.length === 0 && email.wasTouched) {
+    if (formState.email.wasTouched) {
+      if (formState.email.value.length === 0 && formState.email.wasTouched) {
         // required
         newErrors.email = 'required';
-      } else if (email.value.length < 3) {
+      } else if (formState.email.value.length < 3) {
         // minLength
         newErrors.email = 'minLength';
-      } else if (email.value.length > 100) {
+      } else if (formState.email.value.length > 100) {
         // maxLength
         newErrors.email = 'maxLength';
-      } else if (email.value.match(mailRegExp) === null) {
+      } else if (formState.email.value.match(mailRegExp) === null) {
         newErrors.email = 'pattern';
       }
     }
 
     // ?MESSAGE:
-    if (message.wasTouched) {
-      if (message.value.length === 0) {
+    if (formState.message.wasTouched) {
+      if (formState.message.value.length === 0) {
         // required
         newErrors.message = 'required';
-      } else if (message.value.length < 3) {
+      } else if (formState.message.value.length < 3) {
         // minLength
         newErrors.message = 'minLength';
-      } else if (message.value.length > 1000) {
+      } else if (formState.message.value.length > 1000) {
         // maxLength
         newErrors.message = 'maxLength';
       }
@@ -134,21 +226,10 @@ const ContactForm:React.FC<Props> = ({ reRef }) => {
   const onContactSubmit:any = async (event:Event) => {
     event.preventDefault();
 
-    setName((state) => ({
-      ...state,
-      wasTouched: true,
-    }));
-    setEmail((state) => ({
-      ...state,
-      wasTouched: true,
-    }));
-    setMessage((state) => ({
-      ...state,
-      wasTouched: true,
-    }));
+    dispatch({ type: 'touchAll' });
 
     if ((!errors.name && !errors.email && !errors.message)
-    && name.wasTouched && email.wasTouched && message.wasTouched) {
+    && formState.name.wasTouched && formState.email.wasTouched && formState.message.wasTouched) {
       // Submit
       setContactRequestError(null);
       setContactRequestLoading(true);
@@ -156,9 +237,9 @@ const ContactForm:React.FC<Props> = ({ reRef }) => {
       const token = await reRef.current?.executeAsync();
 
       Axios.post('/mail', {
-        name: name.value.trim(),
-        email: email.value.trim(),
-        message: message.value.trim().replaceAll('\n', '<br/>'),
+        name: formState.name.value.trim(),
+        email: formState.email.value.trim(),
+        message: formState.message.value.trim().replaceAll('\n', '<br/>'),
         token,
       })
       .then(() => {
@@ -173,8 +254,10 @@ const ContactForm:React.FC<Props> = ({ reRef }) => {
     }
   };
 
+
   // Validation on states change
-  useEffect(validateContactForm, [name, email, message]);
+  useEffect(validateContactForm, [formState.name, formState.email, formState.message]);
+
 
   return (
     <S.StyledContactSection onSubmit={onContactSubmit}>
@@ -196,11 +279,7 @@ const ContactForm:React.FC<Props> = ({ reRef }) => {
               </Text>
               <Button
                 clicked={() => {
-                  setMessage({
-                    value: '',
-                    wasTouched: false,
-                    isFocused: false,
-                  });
+                  dispatch({ type: 'clearMessage' });
                   setWasContactRequestSent(false);
                   reRef.current?.reset();
                 }}
@@ -218,63 +297,33 @@ const ContactForm:React.FC<Props> = ({ reRef }) => {
                 name="name"
                 label={intl.formatMessage({ id: 'contact.nameInput.label' })}
                 placeholder={intl.formatMessage({ id: 'contact.nameInput.placeholder' })}
-                value={name.value}
+                value={formState.name.value}
                 error={errors.name}
-                onBlur={() => setName((state) => ({
-                  ...state,
-                  wasTouched: true,
-                  isFocused: false,
-                }))}
-                onFocus={() => setName((state) => ({
-                  ...state,
-                  isFocused: true,
-                }))}
-                onInput={(event) => setName((state) => ({
-                  ...state,
-                  value: event.target.value,
-                }))}
+                onBlur={() => dispatch({ type: 'blur', payload: { field: 'name' } })}
+                onFocus={() => dispatch({ type: 'focus', payload: { field: 'name' } })}
+                onInput={(event) => dispatch({ type: 'input', payload: { field: 'name', value: event.target.value } })}
               />
               <TextInput
                 name="email"
                 label={intl.formatMessage({ id: 'contact.emailInput.label' })}
                 placeholder={intl.formatMessage({ id: 'contact.emailInput.placeholder' })}
-                value={email.value}
+                value={formState.email.value}
                 error={errors.email}
-                onBlur={() => setEmail((state) => ({
-                  ...state,
-                  wasTouched: true,
-                  isFocused: false,
-                }))}
-                onFocus={() => setEmail((state) => ({
-                  ...state,
-                  isFocused: true,
-                }))}
-                onInput={(event) => setEmail((state) => ({
-                  ...state,
-                  value: event.target.value,
-                }))}
+                onBlur={() => dispatch({ type: 'blur', payload: { field: 'email' } })}
+                onFocus={() => dispatch({ type: 'focus', payload: { field: 'email' } })}
+                onInput={(event) => dispatch({ type: 'input', payload: { field: 'email', value: event.target.value } })}
               />
               <TextArea
                 name="message"
                 autoComplete="off"
                 label={intl.formatMessage({ id: 'contact.messageInput.label' })}
                 placeholder={intl.formatMessage({ id: 'contact.messageInput.placeholder' })}
-                value={message.value}
+                value={formState.message.value}
                 error={errors.message}
                 resize="vertical"
-                onBlur={() => setMessage((state) => ({
-                  ...state,
-                  wasTouched: true,
-                  isFocused: false,
-                }))}
-                onFocus={() => setMessage((state) => ({
-                  ...state,
-                  isFocused: true,
-                }))}
-                onInput={(event) => setMessage((state) => ({
-                  ...state,
-                  value: event.target.value,
-                }))}
+                onBlur={() => dispatch({ type: 'blur', payload: { field: 'message' } })}
+                onFocus={() => dispatch({ type: 'focus', payload: { field: 'message' } })}
+                onInput={(event) => dispatch({ type: 'input', payload: { field: 'message', value: event.target.value } })}
               />
               {contactRequestError && <Text error tac>{intl.formatMessage({ id: 'contact.error' })}</Text>}
               <S.StyledContactSectionButtonWrapper>
